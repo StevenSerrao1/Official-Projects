@@ -1,0 +1,89 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T17:57:42.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T17:57:11.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAoAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T17:52:31.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T17:50:32.075Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

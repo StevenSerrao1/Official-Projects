@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Steven\\source\\repos\\MyPortfolioSolution\\wwwroot\\Stylesheets\\StyleSheet.css",
+      "PackagePath": "staticwebassets\\Stylesheets\\StyleSheet.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyPortfolioSolution.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MyPortfolioSolution.props",
+      "PackagePath": "build\\MyPortfolioSolution.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MyPortfolioSolution.props",
+      "PackagePath": "buildMultiTargeting\\MyPortfolioSolution.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MyPortfolioSolution.props",
+      "PackagePath": "buildTransitive\\MyPortfolioSolution.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
