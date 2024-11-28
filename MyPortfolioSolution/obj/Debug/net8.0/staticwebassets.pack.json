@@ -1,8 +1,12 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Steven\\source\\repos\\MyPortfolioSolution\\wwwroot\\Stylesheets\\StyleSheet.css",
+      "Id": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\wwwroot\\Stylesheets\\StyleSheet.css",
       "PackagePath": "staticwebassets\\Stylesheets\\StyleSheet.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyPortfolioSolution.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyPortfolioSolution.Microsoft.AspNetCore.StaticWebAssets.props",
