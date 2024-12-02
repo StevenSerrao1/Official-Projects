@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyPortfolioSolution.Models.TestModels;
 
+
+/// CREATE CONTROLLER FOR PROJECT LOADING - 2024/11/30
 namespace MyPortfolioSolution.Controllers
 {
     [ApiController]
@@ -8,7 +10,6 @@ namespace MyPortfolioSolution.Controllers
     public class TestController : ControllerBase
     {
         [HttpGet("get")]
-        [HttpGet("")]
         public IActionResult TestEndpoint()
 
         {

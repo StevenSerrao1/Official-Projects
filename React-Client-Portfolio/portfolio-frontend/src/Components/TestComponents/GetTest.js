@@ -6,7 +6,7 @@ function GetTest() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:7199/api/test")
+    axios.get("http://localhost:7199/api/test/get")
       .then((response) => setMessage(response.data))
       .catch((error) => console.error(error));
   }, []);

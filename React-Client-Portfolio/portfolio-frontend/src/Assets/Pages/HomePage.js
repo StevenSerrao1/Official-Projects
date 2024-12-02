@@ -1,5 +1,4 @@
 import HeaderComponent from "../../Components/RealComponents/Header/HeaderComponent";
-import HomeContentFunction from "../../Components/RealComponents/Body/HomeContentComponent";
 import AboutMe from "../../Components/RealComponents/AboutMe/AboutMeComponent";
 import Projects from "../../Components/RealComponents/ProjectContent/ProjectsComponent";
 import ContactMe from "../../Components/RealComponents/ContactMe/ContactMeComponent";
@@ -9,7 +8,6 @@ function HomePage()
     return(
         <div>
             <HeaderComponent />
-            <HomeContentFunction />
             <AboutMe />
             <Projects />
             <ContactMe />

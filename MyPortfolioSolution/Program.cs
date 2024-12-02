@@ -14,6 +14,8 @@ builder.WebHost.ConfigureKestrel(options =>
 // Add routing capability
 builder.Services.AddRouting();
 
+
+
 // Add Cross-Origin-Resource-Sharing (CORS) capability
 builder.Services.AddCors(options =>
 {
