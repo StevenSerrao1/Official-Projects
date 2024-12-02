@@ -5,16 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 // Add essential controller and view capabilities
 builder.Services.AddControllers();
 
-// Listen on strictly HTTP
+// Dynamically listen on the port provided by Render
 builder.WebHost.ConfigureKestrel(options =>
 {
-    options.Listen(IPAddress.Any, 7199); // HTTP
+    // Listen on 0.0.0.0 (any IP address) and port defined by Render
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
+    options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
 });
+
+builder.WebHost.UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"));
 
 // Add routing capability
 builder.Services.AddRouting();
-
-
 
 // Add Cross-Origin-Resource-Sharing (CORS) capability
 builder.Services.AddCors(options =>
@@ -42,8 +44,8 @@ app.UseCors("AllowFrontend");
 // Enable routing
 app.UseRouting();
 
-// Enable HTTPS redirection
-app.UseHttpsRedirection();
+// You can remove HTTPS redirection if not configured in Render
+// app.UseHttpsRedirection(); 
 
 // Enable Static file use
 app.UseStaticFiles();

@@ -1,7 +1,7 @@
 # Step 1: Use the ASP.NET runtime image for the container
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 WORKDIR /app
-EXPOSE 8080
+EXPOSE 80
 EXPOSE 443
 
 # Step 2: Use the .NET SDK for building your app
