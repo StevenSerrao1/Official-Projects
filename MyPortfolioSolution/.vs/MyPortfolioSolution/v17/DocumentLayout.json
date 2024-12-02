@@ -15,20 +15,20 @@
       "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:myportfoliosolution.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|solutionrelative:controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E7126A09-479E-467D-B858-A24E4206F3C4}|MyPortfolioSolution.csproj|c:\\users\\steven\\desktop\\official_projects\\portfolio-app\\initial-myportfolio\\myportfoliosolution\\models\\testmodels\\test_inputmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "Dockerfile",
               "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Dockerfile",
               "RelativeToolTip": "Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAMAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-12-02T14:58:34.465Z",
               "EditorCaption": ""
@@ -68,31 +68,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MyPortfolioSolution",
+              "Title": "MyPortfolioSolution.csproj",
               "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\MyPortfolioSolution.csproj",
               "RelativeDocumentMoniker": "MyPortfolioSolution.csproj",
               "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\MyPortfolioSolution.csproj",
               "RelativeToolTip": "MyPortfolioSolution.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-12-02T14:32:53.653Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-02T13:40:58.026Z"
+              "WhenOpened": "2024-12-02T13:40:58.026Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -100,11 +101,12 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-27T14:12:14.914Z"
+              "WhenOpened": "2024-11-27T14:12:14.914Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -112,8 +114,7 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-27T09:17:27.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-27T09:17:27.873Z"
             },
             {
               "$type": "Document",
@@ -135,7 +136,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-26T16:47:47.593Z",
               "EditorCaption": ""
@@ -154,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TestController.cs",
               "DocumentMoniker": "C:\\Users\\Steven\\Desktop\\OFFICIAL_PROJECTS\\Portfolio-App\\Initial-MyPortfolio\\MyPortfolioSolution\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
