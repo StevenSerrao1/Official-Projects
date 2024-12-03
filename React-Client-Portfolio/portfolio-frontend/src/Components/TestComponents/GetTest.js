@@ -6,7 +6,7 @@ function GetTest() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:7199/api/test/get")
+    axios.get("https://official-projects.onrender.com/api/test/get")
       .then((response) => setMessage(response.data))
       .catch((error) => console.error(error));
   }, []);

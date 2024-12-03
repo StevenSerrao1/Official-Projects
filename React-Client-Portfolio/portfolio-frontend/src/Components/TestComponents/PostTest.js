@@ -9,8 +9,8 @@ const PostTest = () => {
     const sendData = async () =>
     {
         try {
-            // Send an ASP.NET post request to PostTestEndpoint action method with param Name: "Steven"
-            const response = await axios.post("http://localhost:7199/api/test/post", { Name: "Steven" },
+            // Send an ASP.NET post request to PostTestEndpoint action method(Hosted through Render) with param Name: "Steven"
+            const response = await axios.post("https://official-projects.onrender.com/api/test/post", { Name: "Steven" },
                 {
                     headers: { "Content-Type": "application/json" }
                 }
