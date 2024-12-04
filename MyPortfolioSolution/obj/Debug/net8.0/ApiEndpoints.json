@@ -1,0 +1,58 @@
+[
+  {
+    "ContainingType": "MyPortfolioSolution.Controllers.HomeController",
+    "Method": "Redirect",
+    "RelativePath": "",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyPortfolioSolution.Controllers.TestController",
+    "Method": "TestEndpoint",
+    "RelativePath": "api/Test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyPortfolioSolution.Controllers.TestController",
+    "Method": "TestEndpoint",
+    "RelativePath": "api/Test/get",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyPortfolioSolution.Controllers.TestController",
+    "Method": "PostTestEndpoint",
+    "RelativePath": "api/Test/post",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "MyPortfolioSolution.Models.TestModels.Test_InputModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MyPortfolioSolution.Controllers.HomeController",
+    "Method": "Home",
+    "RelativePath": "Home",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
