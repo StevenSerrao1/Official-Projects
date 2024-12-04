@@ -9,21 +9,21 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the project file and restore dependencies
-COPY MyPortfolioSolution/MyPortfolioSolution.csproj ./   # This is now correct, as it's relative to the Dockerfile location
+COPY ./MyPortfolioSolution/MyPortfolioSolution.csproj /src/
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
-# Copy the Service, ServiceContracts, and Entities folders (since they're in the same folder as Dockerfile)
+# Copy the Service, ServiceContracts, and Entities folders (all from Initial-MyPortfolio)
 COPY Services/ ./Services/
 COPY ServiceContracts/ ./ServiceContracts/
-COPY Entities/ ./Entities/
+COPY Entities/ ../Entities/
 
 # Copy everything else from Initial-MyPortfolio into the container
-COPY ./ ./   # Now we're copying everything inside Initial-MyPortfolio folder
+#COPY ./ ./  # Copy everything from the current context
 
-RUN dotnet publish "MyPortfolioSolution.csproj" -c Release -o /app/publish
+RUN dotnet publish "MyPortfolioSolution.csproj" -c Release -v d -o /app/publish
 
 # Step 3: Final image for running the app
 FROM base AS final
 WORKDIR /app
-COPY --from=build /app/publish . 
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "MyPortfolioSolution.dll"]
