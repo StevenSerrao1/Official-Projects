@@ -12,11 +12,6 @@ WORKDIR /src
 COPY ./MyPortfolioSolution/MyPortfolioSolution.csproj /src/
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
-# Copy the Service, ServiceContracts, and Entities folders (all from Initial-MyPortfolio)
-COPY Services/ ../Services/
-COPY ServiceContracts/ ./ServiceContracts/
-COPY Entities/ ./Entities/
-
 # Copy everything else from Initial-MyPortfolio into the container
 COPY ./ ./
 
