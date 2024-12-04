@@ -13,14 +13,14 @@ COPY ./MyPortfolioSolution/MyPortfolioSolution.csproj /src/
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
 # Copy the Service, ServiceContracts, and Entities folders (all from Initial-MyPortfolio)
-COPY Services/ ./Services/
+COPY Services/ ../Services/
 COPY ServiceContracts/ ./ServiceContracts/
-COPY Entities/ ../Entities/
+COPY Entities/ ./Entities/
 
 # Copy everything else from Initial-MyPortfolio into the container
-#COPY ./ ./  # Copy everything from the current context
+COPY ./ ./  # Copy everything from the current context
 
-RUN dotnet publish "MyPortfolioSolution.csproj" -c Release -v d -o /app/publish
+RUN dotnet publish -c Release -o /app/publish "MyPortfolioSolution.csproj"
 
 # Step 3: Final image for running the app
 FROM base AS final
