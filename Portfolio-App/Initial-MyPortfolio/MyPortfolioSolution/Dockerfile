@@ -17,8 +17,8 @@ COPY ../Services/ ./Services/
 COPY ../ServiceContracts/ ./ServiceContracts/
 COPY ../Entities/ ./Entities/
 
-# Copy everything else from Initial-MyPortfolio into the container
-COPY ../ ./   # Include everything from Initial-MyPortfolio
+# Copy everything else from Initial-MyPortfolio into the container (remove if unnecessary)
+# COPY ../ ./   # Include everything from Initial-MyPortfolio
 
 RUN dotnet publish "MyPortfolioSolution.csproj" -c Release -o /app/publish
 
