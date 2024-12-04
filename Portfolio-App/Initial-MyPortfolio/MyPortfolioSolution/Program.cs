@@ -1,8 +1,8 @@
 using System.Net;
 using Microsoft.EntityFrameworkCore;
-using Entities;
 using Npgsql;
 using DotNetEnv;
+using MyPortfolioSolution.Entities1;
 
 var builder = WebApplication.CreateBuilder(args);
 

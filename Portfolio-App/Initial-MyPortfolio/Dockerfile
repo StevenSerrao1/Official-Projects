@@ -13,7 +13,7 @@ COPY ./MyPortfolioSolution/MyPortfolioSolution.csproj /src/
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
 # Copy everything else from Initial-MyPortfolio into the container
-COPY ./ ./
+COPY ./MyPortfolioSolution/. /src/MyPortfolioSolution/
 
 RUN dotnet publish -c Release -o /app/publish "MyPortfolioSolution.csproj"
 

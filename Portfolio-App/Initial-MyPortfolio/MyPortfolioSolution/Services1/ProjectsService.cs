@@ -1,8 +1,7 @@
-﻿using ServiceContracts;
-using Entities;
-using static System.Net.Mime.MediaTypeNames;
+﻿
+using MyPortfolioSolution.Entities1;
 
-namespace Services
+namespace MyPortfolioSolution.Services1
 {
     public class ProjectsService
     {

@@ -1,6 +1,6 @@
-﻿using Entities;
+﻿using MyPortfolioSolution.Entities1;
 
-namespace ServiceContracts
+namespace MyPortfolioSolution.ServiceContracts1
 {
     public interface IProjectsService
     {

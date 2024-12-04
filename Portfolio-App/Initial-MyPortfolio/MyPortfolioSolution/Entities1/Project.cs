@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace MyPortfolioSolution.Entities1
 {
     public class Project
     {
