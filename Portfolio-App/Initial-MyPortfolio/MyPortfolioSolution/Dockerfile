@@ -9,11 +9,17 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the project file and restore dependencies
-COPY ["MyPortfolioSolution.csproj", "./"]
+COPY MyPortfolioSolution/MyPortfolioSolution.csproj ./   # Copy from the parent folder
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
-# Copy everything else and build the app
-COPY . .
+# Copy the Service, ServiceContracts, and Entities folders from Initial-MyPortfolio
+COPY ../Services/ ./Services/
+COPY ../ServiceContracts/ ./ServiceContracts/
+COPY ../Entities/ ./Entities/
+
+# Copy everything else from Initial-MyPortfolio into the container
+COPY ../ ./   # Include everything from Initial-MyPortfolio
+
 RUN dotnet publish "MyPortfolioSolution.csproj" -c Release -o /app/publish
 
 # Step 3: Final image for running the app
