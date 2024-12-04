@@ -12,13 +12,20 @@ WORKDIR /src
 COPY ./MyPortfolioSolution/MyPortfolioSolution.csproj /src/
 RUN dotnet restore "MyPortfolioSolution.csproj"
 
-# Copy everything else from Initial-MyPortfolio into the container
-COPY ./MyPortfolioSolution/. /src/MyPortfolioSolution/
+# Copy everything else from MyPortfolioSolution into the container
+COPY ./MyPortfolioSolution/. /src/
 
+# Set appropriate permissions to avoid access denied errors
+RUN chmod -R 755 /src
+
+# Publish the app
 RUN dotnet publish -c Release -o /app/publish "MyPortfolioSolution.csproj"
 
 # Step 3: Final image for running the app
 FROM base AS final
 WORKDIR /app
+
+# Copy the publish output from the build stage into the final image
 COPY --from=build /app/publish .
+
 ENTRYPOINT ["dotnet", "MyPortfolioSolution.dll"]
