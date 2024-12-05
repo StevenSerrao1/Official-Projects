@@ -8,25 +8,7 @@ import 'swiper/css'; // Import Swiper styles
 const Projects = () => {
   const [projects, setProjects] = useState([]);
 
-  useEffect(() => {
-    // Make an Axios call to the ASP.NET Core API to fetch projects
-    axios.get('https://official-projects.onrender.com/api/projects/loadprojects') // The backend endpoint
-      .then(response => {
-        setProjects(response.data); // Update the state with the received data
-      })
-      .catch(error => {
-        console.error('There was an error fetching the projects!', error);
-      });
-  }, []);
-
-  return (
-    <div>
-      <ProjectsCarousel projects={projects} /> {/* Pass the projects as a prop */}
-    </div>
-  );
-};
-
-// Below was probably my least favourite type assignment ever. Try typescript in future.
+  // Below was probably my least favourite type assignment ever. Try typescript in future.
 Projects.propTypes = {
   projects: PropTypes.arrayOf(
     PropTypes.shape({
@@ -45,6 +27,24 @@ Projects.propTypes = {
       ).isRequired
     })
   ).isRequired
+};
+
+  useEffect(() => {
+    // Make an Axios call to the ASP.NET Core API to fetch projects
+    axios.get('https://official-projects.onrender.com/api/projects/loadprojects') // The backend endpoint
+      .then(response => {
+        setProjects(response.data); // Update the state with the received data
+      })
+      .catch(error => {
+        console.error('There was an error fetching the projects!', error);
+      });
+  }, []);
+
+  return (
+    <div>
+      <ProjectsCarousel projects={projects} /> {/* Pass the projects as a prop */}
+    </div>
+  );
 };
 
 export default Projects;

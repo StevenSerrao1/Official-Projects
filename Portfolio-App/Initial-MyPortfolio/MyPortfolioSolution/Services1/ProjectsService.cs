@@ -35,6 +35,7 @@ namespace MyPortfolioSolution.Services1
         public async Task<List<ProjectViewModel>> LoadProjects()
         {
             List<ProjectViewModel> projects = await _context.Projects
+                .Include(p => p.Images)
                 .Select(p => p.ToProjectModel())
                 .ToListAsync();  // Use ToListAsync() for async operation
 

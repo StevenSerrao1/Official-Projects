@@ -6,7 +6,7 @@ import styles from './ProjectsCarousel.module.css'; // Import the CSS module
 const ProjectsCarousel = ({ projects }) => {
   return (
     <section id="projects" className={styles['projects-carousel']}>
-      <h2>My Projects</h2>
+      <h2>My Projects for real</h2>
 
       <Swiper
         spaceBetween={30}
@@ -28,9 +28,10 @@ const ProjectsCarousel = ({ projects }) => {
                 alt={project.title}
                 className={styles['project-image']}
               />
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-              <a href={project.link} className={styles['project-link']}>
+              <h2>{project.title}</h2>
+              <h5>Created on: {project.dateCreatedFormatted}</h5>
+              <p>{project.shortDescription}</p>
+              <a href={project.projectURL} className={styles['project-link']}>
                 View Project
               </a>
             </div>
