@@ -40,7 +40,7 @@ namespace MyPortfolioSolution.Entities1
                     new Images
                     {
                         ImageId = 1,
-                        ImageUrl = "https://farm4.staticflickr.com/3256/2594247316_85bcbfdeb1_o_d.jpg",
+                        ImageUrl = "https://content.swncdn.com/godvine/pics/GV-Article/dogsmiles-1.jpg",
                         Caption = "a very, very good boy.",
                         AltText = "smiling dog",
                         ProjectId = 1
