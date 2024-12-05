@@ -1,9 +1,12 @@
-﻿
-using MyPortfolioSolution.Entities1;
+﻿using MyPortfolioSolution.Entities1;
+using MyPortfolioSolution.Models.Enums;
+using MyPortfolioSolution.ViewModels;
+using MyPortfolioSolution.ServiceContracts1;
+using Microsoft.EntityFrameworkCore;
 
 namespace MyPortfolioSolution.Services1
 {
-    public class ProjectsService
+    public class ProjectsService : IProjectsService
     {
         private readonly ApplicationDbContext _context;
 
@@ -12,31 +15,35 @@ namespace MyPortfolioSolution.Services1
             _context = context;
         }
 
-        public async Task AddProject(string name, string description)
-        {
-            var project = new Project
-            {
-                Name = name,
-                Description = description
-            };
-
-            _context.Projects.Add(project);
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task AddProjectWithImages(string name, string description, List<Images> images)
+        public async Task<Project> AddProject(string name, string description, List<Images> images)
         {
             // Create the project
-            var project = new Project
+            Project project = new Project
             {
-                Name = name,
+                Title = name,
                 Description = description,
                 Images = images // This adds the associated images to the project
             };
 
             _context.Projects.Add(project);
+
             await _context.SaveChangesAsync();
+
+            return project;
         }
 
+        public async Task<List<ProjectViewModel>> LoadProjects()
+        {
+            List<ProjectViewModel> projects = await _context.Projects
+                .Select(p => p.ToProjectModel())
+                .ToListAsync();  // Use ToListAsync() for async operation
+
+            return projects;
+        }
+
+        public Task<List<Project>> GetSortedProjects(Sort sort)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

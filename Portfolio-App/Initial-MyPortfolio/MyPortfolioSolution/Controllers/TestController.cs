@@ -21,7 +21,7 @@ namespace MyPortfolioSolution.Controllers
         {
             if(model.Name == null)
             {
-                return BadRequest("Name cannot be empty");
+                return BadRequest("Title cannot be empty");
             }
 
             var response = new { Greeting = $"Hello, {model.Name}"! };

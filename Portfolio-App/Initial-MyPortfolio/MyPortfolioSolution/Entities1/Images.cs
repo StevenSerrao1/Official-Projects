@@ -12,7 +12,13 @@ namespace MyPortfolioSolution.Entities1
 
         [StringLength(200)]
         [Url]
-        public string? Url { get; set; } // Store image links here
+        public string ImageUrl { get; set; } = string.Empty; // Store image links here
+
+        [StringLength(200)]
+        public string Caption { get; set; } = string.Empty;
+
+        [StringLength(600)]
+        public string AltText { get; set; } = string.Empty;    
 
         [ForeignKey("ProjectId")]
         public int ProjectId { get; set; } // Foreign key to Project

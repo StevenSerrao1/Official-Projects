@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using DotNetEnv;
 using MyPortfolioSolution.Entities1;
+using MyPortfolioSolution.ServiceContracts1;
+using MyPortfolioSolution.Services1;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,9 @@ Env.Load();
 builder.Services.AddControllers();
 
 // ADD SERVICES
+// Dependency injection
+builder.Services.AddScoped<IProjectsService, ProjectsService>();
+
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables();
 
@@ -53,7 +58,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
     //Console.WriteLine($"Database Host: {Environment.GetEnvironmentVariable("DATABASE_HOST")}");
-    //Console.WriteLine($"Database Name: {Environment.GetEnvironmentVariable("DATABASE_NAME")}");
+    //Console.WriteLine($"Database Title: {Environment.GetEnvironmentVariable("DATABASE_NAME")}");
     //Console.WriteLine($"Database User: {Environment.GetEnvironmentVariable("DATABASE_USER")}");
     //Console.WriteLine($"Database Password: {Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}");
     Console.WriteLine($"Connection Str: {Environment.GetEnvironmentVariable("CONNECTION_STR")}");
