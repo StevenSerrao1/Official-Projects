@@ -1,4 +1,5 @@
-﻿using MyPortfolioSolution.ViewModels;
+﻿using MyPortfolioSolution.DTO;
+using MyPortfolioSolution.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -47,9 +48,9 @@ namespace MyPortfolioSolution.Entities1
         /// </summary>
         /// <param name="project">Project object to be converted (current object)</param>
         /// <returns>ProjectViewModel with formatted fields</returns>
-        public static ViewModels.ProjectViewModel ToProjectModel(this Project project)
+        public static ProjectViewModel ToProjectModel(this Project project)
         {
-            return new ViewModels.ProjectViewModel
+            return new ProjectViewModel
             {
                 Title = project.Title,
                 ShortDescription = project.Description.Length > 100
@@ -59,12 +60,32 @@ namespace MyPortfolioSolution.Entities1
                 ProjectURL = project.ProjectURL,
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
                 GitHubViews = project.GitHubViews,
-                Images = project.Images?.Select(image => new ImageViewModel
+                Images = project.Images?.Select(image => new Images
                 {
                     ImageUrl = image.ImageUrl,
                     Caption = image.Caption,
                     AltText = image.AltText
-                }).ToList() ?? new List<ImageViewModel>() // Handle null collections
+                }).ToList() ?? new List<Images>() // Handle null collections
+            };
+        }
+
+        public static ProjectAddResponse ToProjectAddReponse(this Project project)
+        {
+            return new ProjectAddResponse
+            {
+                ProjectId = project.ProjectId,
+                Title = project.Title,
+                Description = project.Description,
+                ProjectURL = project.ProjectURL,
+                DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
+                GitHubViews = project.GitHubViews,
+                GitHubRepoName = project.GitHubRepoName,
+                Images = project.Images?.Select(image => new Images
+                {
+                    ImageUrl = image.ImageUrl,
+                    Caption = image.Caption,
+                    AltText = image.AltText
+                }).ToList() ?? new List<Images>() // Handle null collections
             };
         }
     }

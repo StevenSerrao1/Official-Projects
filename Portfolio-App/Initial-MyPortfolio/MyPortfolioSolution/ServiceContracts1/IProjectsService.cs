@@ -1,4 +1,5 @@
 ﻿using MyPortfolioSolution.Entities1;
+using MyPortfolioSolution.DTO;
 using MyPortfolioSolution.Models.Enums;
 using MyPortfolioSolution.ViewModels;
 
@@ -17,13 +18,14 @@ namespace MyPortfolioSolution.ServiceContracts1
         /// <param name="projecturl">URL of project (host site)</param>
         /// <param name="githubreponame">Name of repo hosting the project</param>
         /// <returns></returns>
-        public Task<Project> AddProject(string name, string description, string imageUrls, string captions, string alttexts, string projecturl, string githubreponame);
+        public Task<ProjectAddResponse> AddProject(ProjectAddRequest par, string imageUrls, string captions, string alttexts);
 
         /// <summary>
         /// Loads a list of all projects currently in Projects DB (Available through CLIENT and ADMIN API)
         /// </summary>
         /// <returns>List<ProjectViewModel> reflecting all projects added</returns>
         public Task<List<ProjectViewModel>> LoadProjects();
+        public Task<List<ProjectAddResponse>> LoadAdminProjects();
 
         /// <summary>
         /// Sort projects based on newest, oldest or most viewed on Github

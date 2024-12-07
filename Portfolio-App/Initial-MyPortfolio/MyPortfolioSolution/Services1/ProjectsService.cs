@@ -3,6 +3,7 @@ using MyPortfolioSolution.Models.Enums;
 using MyPortfolioSolution.ViewModels;
 using MyPortfolioSolution.ServiceContracts1;
 using Microsoft.EntityFrameworkCore;
+using MyPortfolioSolution.DTO;
 
 namespace MyPortfolioSolution.Services1
 {
@@ -19,17 +20,12 @@ namespace MyPortfolioSolution.Services1
             _imageService = imageService;
         }
 
-        public async Task<Project> AddProject(string name, string description, string imageUrls, string captions, string alttexts, string projecturl, string githubreponame)
+        public async Task<ProjectAddResponse> AddProject(ProjectAddRequest par, string imageUrls, string captions, string alttexts)
         {
             // Create the project
-            Project project = new Project
-            {
-                Title = name,
-                Description = description,
-                ProjectURL = projecturl,
-                GitHubRepoName = githubreponame,
-                GitHubViews = await _gitHubService.GetGitHubViewsAsync(githubreponame),
-            };
+            Project project = par.ToProject();
+
+            project.GitHubViews = await _gitHubService.GetGitHubViewsAsync(project.GitHubRepoName);
 
             // Add project to context and save changes to get the ProjectId
             _context.Projects!.Add(project);
@@ -41,10 +37,12 @@ namespace MyPortfolioSolution.Services1
             // Link images to the project
             project.Images = images;
 
+            ProjectAddResponse response = project.ToProjectAddReponse();
+
             // Save the images and the linked project to the context
             await _context.SaveChangesAsync();
 
-            return project;
+            return response;
         }
 
 
@@ -53,6 +51,16 @@ namespace MyPortfolioSolution.Services1
             List<ProjectViewModel> projects = await _context.Projects!
                 .Include(p => p.Images)
                 .Select(p => p.ToProjectModel())
+                .ToListAsync();  // Use ToListAsync() for async operation
+
+            return projects;
+        }
+
+        public async Task<List<ProjectAddResponse>> LoadAdminProjects()
+        {
+            List<ProjectAddResponse> projects = await _context.Projects!
+                .Include(p => p.Images)
+                .Select(p => p.ToProjectAddReponse())
                 .ToListAsync();  // Use ToListAsync() for async operation
 
             return projects;

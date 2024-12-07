@@ -30,23 +30,4 @@ namespace MyPortfolioSolution.Controllers
 
         }
     }
-
-    [ApiController]
-    [Route("[controller]")]
-    public class HomeController : ControllerBase
-    {
-        // Redirect web app startup to 'Home' action method below
-        [Route("/")]
-        public RedirectToActionResult Redirect()
-        {
-            return RedirectToAction("Home");
-        }
-
-        // Initial app startup action method **
-        [HttpGet("")]
-        public IActionResult Home()
-        {
-            return Ok("Home page");
-        }
-    }
 }

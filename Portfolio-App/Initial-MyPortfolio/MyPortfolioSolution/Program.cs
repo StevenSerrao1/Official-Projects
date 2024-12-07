@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 Env.Load();
 
 // Add essential controller and view capabilities
-builder.Services.AddControllers();
+builder.Services.AddControllersWithViews();
 
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables();

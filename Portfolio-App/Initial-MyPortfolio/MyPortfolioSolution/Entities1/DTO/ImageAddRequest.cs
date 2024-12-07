@@ -1,4 +1,4 @@
-﻿namespace MyPortfolioSolution.ViewModels
+﻿namespace MyPortfolioSolution.DTO
 {
     public class ImageAddRequest
     {
