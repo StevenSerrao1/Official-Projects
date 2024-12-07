@@ -14,10 +14,6 @@ Env.Load();
 // Add essential controller and view capabilities
 builder.Services.AddControllers();
 
-// ADD SERVICES
-// Dependency injection
-builder.Services.AddScoped<IProjectsService, ProjectsService>();
-
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables();
 
@@ -28,13 +24,19 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString);
 });
 
+// ADD SERVICES
+// Dependency injection
+builder.Services.AddScoped<IProjectsService, ProjectsService>();
+builder.Services.AddScoped<IGitHubService, GitHubService>();
+builder.Services.AddScoped<IImageService, ImageService>();
+
 // Dynamically listen on the port provided by Render
-builder.WebHost.ConfigureKestrel(options =>
-{
-    // Listen on 0.0.0.0 (any IP address) and port defined by Render
-    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
-    options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
-});
+//builder.WebHost.ConfigureKestrel(options =>
+//{
+//    // Listen on 0.0.0.0 (any IP address) and port defined by Render
+//    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
+//    options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
+//});
 
 // Add routing capability
 builder.Services.AddRouting();
@@ -62,6 +64,7 @@ if (app.Environment.IsDevelopment())
     //Console.WriteLine($"Database User: {Environment.GetEnvironmentVariable("DATABASE_USER")}");
     //Console.WriteLine($"Database Password: {Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}");
     Console.WriteLine($"Connection Str: {Environment.GetEnvironmentVariable("CONNECTION_STR")}");
+    Console.WriteLine($"GitHubAPI Str: {Environment.GetEnvironmentVariable("REPOPublicAccessToken")}");
 }
 
 // Enable CORS

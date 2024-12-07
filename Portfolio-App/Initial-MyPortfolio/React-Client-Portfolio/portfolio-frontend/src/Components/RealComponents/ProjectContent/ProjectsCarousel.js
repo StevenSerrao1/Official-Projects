@@ -31,6 +31,7 @@ const ProjectsCarousel = ({ projects }) => {
                   src={image.imageUrl}
                   alt={image.altText}
                   className={styles['project-image']}
+                  style={{ maxWidth: '100%', height: 'auto', maxHeight: '500px' }}
                 />
                 {image.caption && <p className={styles['image-caption']}>{image.caption}</p>}
               </div>

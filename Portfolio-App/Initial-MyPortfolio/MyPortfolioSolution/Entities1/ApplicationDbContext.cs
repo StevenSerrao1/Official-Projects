@@ -30,7 +30,7 @@ namespace MyPortfolioSolution.Entities1
                         Description = "My professional portfolio, showcasing my projects with entries ranging from personal projects to commercial projects. All projects use a variety of tech stacks, with a primary focus throughout on ASP.NET Core, which is my specialty.",
                         ProjectURL = "localhost:3000",
                         DateCreated = new DateTimeOffset(DateTime.Parse("2024/12/20"), TimeSpan.Zero),
-                        GitHubViews = 0
+                        GitHubViews = "0"
                     }
                 );
 

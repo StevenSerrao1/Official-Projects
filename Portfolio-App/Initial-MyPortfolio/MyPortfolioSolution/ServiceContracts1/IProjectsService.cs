@@ -7,13 +7,17 @@ namespace MyPortfolioSolution.ServiceContracts1
     public interface IProjectsService
     {
         /// <summary>
-        /// Adds a project into the Projects DB (ONLY AVAILABLE THROUGH ADMIN API)
+        /// Adds a project to the database, can ONLY be called through Admin Portal
         /// </summary>
-        /// <param name="name">Title of project being added</param>
-        /// <param name="description">Description of project being added</param>
-        /// <param name="images">List of Images type denoting images being linked to project</param>
-        /// <returns>The Project object being added</returns>
-        public Task<Project> AddProject(string name, string description, List<Images> images);
+        /// <param name="name">Title of Project</param>
+        /// <param name="description">Description of Project</param>
+        /// <param name="imageUrls">Comma separated string of varying image urls</param>
+        /// <param name="captions">Comma separated string of varying image captions</param>
+        /// <param name="alttexts">Comma separated string of varying image alt-texts</param>
+        /// <param name="projecturl">URL of project (host site)</param>
+        /// <param name="githubreponame">Name of repo hosting the project</param>
+        /// <returns></returns>
+        public Task<Project> AddProject(string name, string description, string imageUrls, string captions, string alttexts, string projecturl, string githubreponame);
 
         /// <summary>
         /// Loads a list of all projects currently in Projects DB (Available through CLIENT and ADMIN API)

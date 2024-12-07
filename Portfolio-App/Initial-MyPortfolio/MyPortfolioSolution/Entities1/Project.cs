@@ -27,9 +27,16 @@ namespace MyPortfolioSolution.Entities1
 
         public DateTimeOffset DateCreated { get; set; }
 
-        public int GitHubViews { get; set; }
+        public string GitHubViews { get; set; } = string.Empty;
+
+        public string GitHubRepoName { get; set; } = string.Empty;
 
         public ICollection<Images>? Images { get; set; }
+
+        public Project()
+        {
+            DateCreated = DateTimeOffset.UtcNow;
+        }
 
     }
 
@@ -51,7 +58,7 @@ namespace MyPortfolioSolution.Entities1
                 FullDescription = project.Description,
                 ProjectURL = project.ProjectURL,
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
-                GitHubViews = project.GitHubViews.ToString(),
+                GitHubViews = project.GitHubViews,
                 Images = project.Images?.Select(image => new ImageViewModel
                 {
                     ImageUrl = image.ImageUrl,

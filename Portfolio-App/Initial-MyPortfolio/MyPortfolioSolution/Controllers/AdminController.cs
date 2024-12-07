@@ -14,18 +14,19 @@ namespace MyPortfolioSolution.Controllers
             return View();
         }
 
-        [HttpPost("[action]")]
-        public Task<IActionResult> CreateProject([FromBody] Project project)
+        // TURN BACK INTO POST METHOD AND MOCK A BASIC PROJECT ADDITION
+        [HttpGet("[action]")]
+        public IActionResult CreateProject()
         {
             // Dummy logic to return a successful response without doing actual processing
-            var dummyProject = new Project
+            Project dummyProject = new Project
             {
                 Title = "Dummy Project",
                 Description = "This is a dummy project to avoid errors."
             };
 
             // Simulate async operation and return an Ok result with the dummy project
-            return Task.FromResult<IActionResult>(Ok(dummyProject));
+            return Ok(dummyProject);
         }
     }
 }

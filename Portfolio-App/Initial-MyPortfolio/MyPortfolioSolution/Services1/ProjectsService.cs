@@ -9,32 +9,48 @@ namespace MyPortfolioSolution.Services1
     public class ProjectsService : IProjectsService
     {
         private readonly ApplicationDbContext _context;
-
-        public ProjectsService(ApplicationDbContext context)
+        private readonly IGitHubService _gitHubService;
+        private readonly IImageService _imageService;
+        
+        public ProjectsService(ApplicationDbContext context, IGitHubService gitHubService, IImageService imageService)
         {
             _context = context;
+            _gitHubService = gitHubService;
+            _imageService = imageService;
         }
 
-        public async Task<Project> AddProject(string name, string description, List<Images> images)
+        public async Task<Project> AddProject(string name, string description, string imageUrls, string captions, string alttexts, string projecturl, string githubreponame)
         {
             // Create the project
             Project project = new Project
             {
                 Title = name,
                 Description = description,
-                Images = images // This adds the associated images to the project
+                ProjectURL = projecturl,
+                GitHubRepoName = githubreponame,
+                GitHubViews = await _gitHubService.GetGitHubViewsAsync(githubreponame),
             };
 
-            _context.Projects.Add(project);
+            // Add project to context and save changes to get the ProjectId
+            _context.Projects!.Add(project);
+            await _context.SaveChangesAsync(); // Save the project to get the ProjectId
 
+            // Now create and link images using the ImageService
+            var images = await _imageService.CreateImagesForProject(imageUrls, project.ProjectId, captions, alttexts);
+
+            // Link images to the project
+            project.Images = images;
+
+            // Save the images and the linked project to the context
             await _context.SaveChangesAsync();
 
             return project;
         }
 
+
         public async Task<List<ProjectViewModel>> LoadProjects()
         {
-            List<ProjectViewModel> projects = await _context.Projects
+            List<ProjectViewModel> projects = await _context.Projects!
                 .Include(p => p.Images)
                 .Select(p => p.ToProjectModel())
                 .ToListAsync();  // Use ToListAsync() for async operation
