@@ -10,7 +10,7 @@ namespace MyPortfolioSolution.ViewModels
         public string ProjectURL { get; set; } = string.Empty;
         public string DateCreatedFormatted { get; set; } = string.Empty;
         public string? GitHubViews { get; set; } 
-        public List<Images> Images { get; set; } = new();
+        public List<ImageViewModel> Images { get; set; } = new();
 
     }
 

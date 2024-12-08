@@ -32,7 +32,7 @@ namespace MyPortfolioSolution.Entities1
 
         public string GitHubRepoName { get; set; } = string.Empty;
 
-        public ICollection<Images>? Images { get; set; }
+        public List<Images>? Images { get; set; }
 
         public Project()
         {
@@ -60,12 +60,12 @@ namespace MyPortfolioSolution.Entities1
                 ProjectURL = project.ProjectURL,
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
                 GitHubViews = project.GitHubViews,
-                Images = project.Images?.Select(image => new Images
+                Images = project.Images?.Select(image => new ImageViewModel
                 {
                     ImageUrl = image.ImageUrl,
                     Caption = image.Caption,
                     AltText = image.AltText
-                }).ToList() ?? new List<Images>() // Handle null collections
+                }).ToList() ?? new List<ImageViewModel>() // Handle null collections
             };
         }
 

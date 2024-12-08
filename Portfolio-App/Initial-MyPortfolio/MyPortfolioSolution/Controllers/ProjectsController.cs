@@ -2,6 +2,7 @@
 using MyPortfolioSolution.Entities1;
 using MyPortfolioSolution.ServiceContracts1;
 using MyPortfolioSolution.Services1;
+using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.Controllers
 {
@@ -23,10 +24,9 @@ namespace MyPortfolioSolution.Controllers
         [HttpGet("[action]")]
         public async Task<IActionResult> LoadProjects() // api/projects/loadprojects
         {
-
             try
             {
-                var projects = await _projectsService.LoadProjects();
+                List<ProjectViewModel> projects = await _projectsService.LoadProjects();
                 return Ok(projects);
             }
             catch (Exception ex)

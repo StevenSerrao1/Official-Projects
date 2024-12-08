@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyPortfolioSolution.DTO;
+using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.Entities1
 {
@@ -33,6 +34,17 @@ namespace MyPortfolioSolution.Entities1
             return new ImageAddResponse()
             {
                 ImageId = image.ImageId,
+                ImageUrl = image.ImageUrl,
+                Caption = image.Caption,
+                AltText = image.AltText,
+                ProjectId = image.ProjectId
+            };
+        }
+
+        public static ImageViewModel ToImageViewModel(this Images image)
+        {
+            return new ImageViewModel()
+            {
                 ImageUrl = image.ImageUrl,
                 Caption = image.Caption,
                 AltText = image.AltText,

@@ -25,22 +25,14 @@ namespace MyPortfolioSolution.Controllers
             return View(projects);
         }
 
-        [HttpGet("[action]")]
-        public IActionResult CreateProjectGet()
+        [HttpGet("[action]")] // admin/createprojectget
+        public IActionResult CreateProject()
         {
-            // Dummy logic to return a successful response without doing actual processing
-            Project dummyProject = new Project
-            {
-                Title = "Dummy Project",
-                Description = "This is a dummy project to avoid errors."
-            };
-
-            // Simulate async operation and return an Ok result with the dummy project
-            return Ok(dummyProject);
+            return View();
         }
 
         [HttpPost("[action]")]
-        public IActionResult CreateProjectPost()
+        public IActionResult CreateProject([FromForm] ProjectAddRequest par, [FromForm]  List<ImageAddRequest> iar)
         {
             // Dummy logic to return a successful response without doing actual processing
             Project dummyProject = new Project

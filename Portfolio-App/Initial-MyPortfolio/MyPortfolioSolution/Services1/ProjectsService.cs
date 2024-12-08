@@ -52,13 +52,14 @@ namespace MyPortfolioSolution.Services1
             return response;
         }
 
-
         public async Task<List<ProjectViewModel>> LoadProjects()
         {
             List<ProjectViewModel> projects = await _context.Projects!
                 .Include(p => p.Images)
                 .Select(p => p.ToProjectModel())
                 .ToListAsync();  // Use ToListAsync() for async operation
+
+            Console.WriteLine(projects[0].ToString());
 
             return projects;
         }
@@ -82,6 +83,11 @@ namespace MyPortfolioSolution.Services1
         }
 
         public Task<List<Project>> GetSortedProjects(Sort sort)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteProject()
         {
             throw new NotImplementedException();
         }

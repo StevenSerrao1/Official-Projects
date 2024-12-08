@@ -11,14 +11,13 @@ namespace MyPortfolioSolution.DTO
 
     public static class ImageRequestExtensions
     {
-        public static Images ToImages(this ImageAddRequest request, int projectId)
+        public static Images ToImages(this ImageAddRequest request)
         {
             return new Images
             {
                 ImageUrl = request.ImageUrl,
                 Caption = request.Caption,
-                AltText = request.AltText,
-                ProjectId = projectId // Explicitly set the ProjectId
+                AltText = request.AltText
             };
         }
     }
