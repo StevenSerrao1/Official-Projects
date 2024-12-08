@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MyPortfolioSolution.DTO;
 using MyPortfolioSolution.Entities1;
 using MyPortfolioSolution.ServiceContracts1;
 using MyPortfolioSolution.ViewModels;
@@ -19,7 +20,7 @@ namespace MyPortfolioSolution.Controllers
         [HttpGet("/")]
         public async Task<IActionResult> AdminPanel()
         {
-            List<ProjectViewModel> projects = await _projectsService.LoadProjects();
+            List<ProjectAddResponse> projects = await _projectsService.LoadAdminProjects();
             
             return View(projects);
         }

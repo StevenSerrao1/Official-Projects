@@ -20,11 +20,12 @@ namespace MyPortfolioSolution.Services1
             _imageService = imageService;
         }
 
-        public async Task<ProjectAddResponse> AddProject(ProjectAddRequest par, string imageUrls, string captions, string alttexts)
+        public async Task<ProjectAddResponse> AddProject(ProjectAddRequest par, List<ImageAddRequest> iar)
         {
-            // Create the project
+            // Create the project from ProjectAddRequest
             Project project = par.ToProject();
 
+            // Fetch GitHub views asynchronously
             project.GitHubViews = await _gitHubService.GetGitHubViewsAsync(project.GitHubRepoName);
 
             // Add project to context and save changes to get the ProjectId
@@ -32,16 +33,22 @@ namespace MyPortfolioSolution.Services1
             await _context.SaveChangesAsync(); // Save the project to get the ProjectId
 
             // Now create and link images using the ImageService
-            var images = await _imageService.CreateImagesForProject(imageUrls, project.ProjectId, captions, alttexts);
+            List<Images> images = await _imageService.CreateImagesForProject(iar, project.ProjectId);
 
-            // Link images to the project
+            // Link images to the project (Images property should be a list of Images entities)
             project.Images = images;
 
+            // Convert the Images entities to ImageAddResponse DTOs
+            List<ImageAddResponse> imageAddResponses = images.Select(image => image.ToImageAddResponse()).ToList();
+
+            // Map Project to ProjectAddResponse, including the image responses
             ProjectAddResponse response = project.ToProjectAddReponse();
+            response.Images = imageAddResponses;  // Ensure the ProjectAddResponse class has an Images property for the responses
 
             // Save the images and the linked project to the context
             await _context.SaveChangesAsync();
 
+            // Return the response
             return response;
         }
 
@@ -58,10 +65,18 @@ namespace MyPortfolioSolution.Services1
 
         public async Task<List<ProjectAddResponse>> LoadAdminProjects()
         {
-            List<ProjectAddResponse> projects = await _context.Projects!
+            // Fetch the projects with their images
+            List <ProjectAddResponse> projects = await _context.Projects!
                 .Include(p => p.Images)
-                .Select(p => p.ToProjectAddReponse())
-                .ToListAsync();  // Use ToListAsync() for async operation
+                .Select(p => p.ToProjectAddReponse()) // Project is converted to ProjectAddResponse
+                .ToListAsync();
+
+            // Iterate through each project and fetch GitHub views asynchronously
+            foreach (var project in projects)
+            {
+                // Call the GitHub service to get the views asynchronously
+                project.GitHubViews = await _gitHubService.GetGitHubViewsAsync(project.GitHubRepoName);
+            }
 
             return projects;
         }

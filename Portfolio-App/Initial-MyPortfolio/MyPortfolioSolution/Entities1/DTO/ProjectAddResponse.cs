@@ -6,12 +6,12 @@ namespace MyPortfolioSolution.DTO
     {
         public int ProjectId { get; set; }
         public string Title { get; set; } = string.Empty;
-        public string? Description { get; set; }
+        public string Description { get; set; } = string.Empty;
         public string ProjectURL { get; set; } = string.Empty;
         public string DateCreatedFormatted { get; set; } = string.Empty;
-        public string? GitHubRepoName { get; set; }
+        public string GitHubRepoName { get; set; } = string.Empty;
         public string GitHubViews { get; set; } = string.Empty;
-        public List<Images> Images { get; set; } = new();
+        public List<ImageAddResponse> Images { get; set; } = new();
     }
 
 }

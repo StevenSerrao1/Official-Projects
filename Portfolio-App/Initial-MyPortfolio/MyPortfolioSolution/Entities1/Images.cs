@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MyPortfolioSolution.DTO;
 
 namespace MyPortfolioSolution.Entities1
 {
@@ -24,5 +25,19 @@ namespace MyPortfolioSolution.Entities1
         public int ProjectId { get; set; } // Foreign key to Project
 
         public Project? Project { get; set; } // Navigation property
+    }
+    public static class ImageRequestExtensions
+    {
+        public static ImageAddResponse ToImageAddResponse(this Images image)
+        {
+            return new ImageAddResponse()
+            {
+                ImageId = image.ImageId,
+                ImageUrl = image.ImageUrl,
+                Caption = image.Caption,
+                AltText = image.AltText,
+                ProjectId = image.ProjectId
+            };
+        }
     }
 }

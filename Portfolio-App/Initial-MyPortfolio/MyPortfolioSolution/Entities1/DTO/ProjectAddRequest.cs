@@ -8,10 +8,9 @@ namespace MyPortfolioSolution.DTO
         public string Description { get; set; } = string.Empty;
         public string ProjectURL { get; set; } = string.Empty;
         public string GitHubRepoName { get; set; } = string.Empty;   
-        public List<Images> Images { get; set; } = new();
     }
 
-    public static class Extensions
+    public static class ProjectRequestExtensions
     {
         public static Project ToProject(this ProjectAddRequest par)
         {
@@ -21,7 +20,6 @@ namespace MyPortfolioSolution.DTO
                 Description = par.Description,
                 ProjectURL = par.ProjectURL,
                 GitHubRepoName = par.GitHubRepoName,
-                Images = par.Images
             };
         }
     };

@@ -10,15 +10,10 @@ namespace MyPortfolioSolution.ServiceContracts1
         /// <summary>
         /// Adds a project to the database, can ONLY be called through Admin Portal
         /// </summary>
-        /// <param name="name">Title of Project</param>
-        /// <param name="description">Description of Project</param>
-        /// <param name="imageUrls">Comma separated string of varying image urls</param>
-        /// <param name="captions">Comma separated string of varying image captions</param>
-        /// <param name="alttexts">Comma separated string of varying image alt-texts</param>
-        /// <param name="projecturl">URL of project (host site)</param>
-        /// <param name="githubreponame">Name of repo hosting the project</param>
-        /// <returns></returns>
-        public Task<ProjectAddResponse> AddProject(ProjectAddRequest par, string imageUrls, string captions, string alttexts);
+        /// <param name="par">Object of ProjectAddRequest type</param>
+        /// <param name="iar">List of ImageAddRequest type</param>
+        /// <returns>An Object of ProjectAddResponse type</returns>
+        public Task<ProjectAddResponse> AddProject(ProjectAddRequest par, List<ImageAddRequest> iar);
 
         /// <summary>
         /// Loads a list of all projects currently in Projects DB (Available through CLIENT and ADMIN API)

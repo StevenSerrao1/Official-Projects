@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<ProjectAddResponse>;
+
+@{
     ViewBag.Title = "AdminPanel";
     Layout = "~/Views/Admin/_AdminLayout.cshtml";
 }
@@ -7,8 +9,34 @@
 <p>Here, you can Create, Read, Update and Delete projects for the portfolio app</p>
 
 
-<table>
-    <thead>ProjectID</thead>
-    <thead>ProjectName</thead>
-    <thead>ProjectDescription</thead>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ProjectID</th>
+            <th>ProjectName</th>
+            <th>ProjectDescription</th>
+            <th>GitHubRepoName</th>
+            <th>GitHubViews</th>
+            <th>Images</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Here you'd loop through the projects and add a row for each project -->
+        @foreach(ProjectAddResponse project in Model)
+        {
+            <tr>
+                <td>@project.ProjectId</td>
+                <td>@project.Title</td>
+                <td>@project.Description</td>
+                <td>@project.GitHubRepoName</td>
+                <td>@project.GitHubViews</td>
+                <td>
+                    <ul>
+                        <li><img src="@project.Images[0].ImageUrl" alt="First screenshot" />
+                    </ul>
+                </td>
+            </tr>
+        }
+        <!-- Add more rows dynamically here -->
+    </tbody>
 </table>

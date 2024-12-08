@@ -80,12 +80,12 @@ namespace MyPortfolioSolution.Entities1
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
                 GitHubViews = project.GitHubViews,
                 GitHubRepoName = project.GitHubRepoName,
-                Images = project.Images?.Select(image => new Images
+                Images = project.Images?.Select(image => new ImageAddResponse
                 {
                     ImageUrl = image.ImageUrl,
                     Caption = image.Caption,
                     AltText = image.AltText
-                }).ToList() ?? new List<Images>() // Handle null collections
+                }).ToList() ?? new List<ImageAddResponse>() // Handle null collections
             };
         }
     }

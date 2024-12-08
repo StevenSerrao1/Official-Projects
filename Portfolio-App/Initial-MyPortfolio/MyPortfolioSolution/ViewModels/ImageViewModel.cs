@@ -1,6 +1,6 @@
 ﻿namespace MyPortfolioSolution.ViewModels
 {
-    public class ImageAddRequest
+    public class ImageViewModel
     {
         public string ImageUrl { get; set; } = string.Empty;
         public string? Caption { get; set; }
