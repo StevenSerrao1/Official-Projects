@@ -30,13 +30,13 @@ builder.Services.AddScoped<IProjectsService, ProjectsService>();
 builder.Services.AddScoped<IGitHubService, GitHubService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 
-// Dynamically listen on the port provided by Render
-//builder.WebHost.ConfigureKestrel(options =>
-//{
-//    // Listen on 0.0.0.0 (any IP address) and port defined by Render
-//    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
-//    options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
-//});
+//Dynamically listen on the port provided by Render
+builder.WebHost.ConfigureKestrel(options =>
+{
+    // Listen on 0.0.0.0 (any IP address) and port defined by Render
+    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
+options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
+});
 
 // Add routing capability
 builder.Services.AddRouting();
