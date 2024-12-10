@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyPortfolioSolution.DTO;
 using MyPortfolioSolution.ViewModels;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MyPortfolioSolution.Entities1
 {
@@ -12,11 +13,11 @@ namespace MyPortfolioSolution.Entities1
         [Key]
         public int ImageId { get; set; }
 
-        [StringLength(200)]
+        [StringLength(500)]
         [Url]
         public string ImageUrl { get; set; } = string.Empty; // Store image links here
 
-        [StringLength(200)]
+        [StringLength(300)]
         public string Caption { get; set; } = string.Empty;
 
         [StringLength(600)]
@@ -49,6 +50,16 @@ namespace MyPortfolioSolution.Entities1
                 Caption = image.Caption,
                 AltText = image.AltText,
                 ProjectId = image.ProjectId
+            };
+        }
+
+        public static ImageAddRequest ToImageAddRequest(this Images image)
+        {
+            return new ImageAddRequest()
+            {
+                ImageUrl = image.ImageUrl,
+                Caption = image.Caption,
+                AltText = image.AltText
             };
         }
     }

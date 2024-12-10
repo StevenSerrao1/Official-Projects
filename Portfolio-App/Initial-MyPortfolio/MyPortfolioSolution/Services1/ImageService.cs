@@ -25,8 +25,14 @@ namespace MyPortfolioSolution.Services1
 
             // Convert ImageAddRequest objects to Images entities
             List<Images> images = imageRequests
-                .Select(request => request.ToImages(projectId))
+                .Select(request => request.ToImages())
                 .ToList();
+
+            // Now set the projectId on each image
+            foreach (var image in images)
+            {
+                image.ProjectId = projectId;
+            }
 
             // Save the images to the database
             _context.Images!.AddRange(images);

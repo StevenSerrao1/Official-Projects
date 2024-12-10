@@ -21,22 +21,27 @@
         </tr>
     </thead>
     <tbody>
-        <!-- Here you'd loop through the projects and add a row for each project -->
-        @foreach(ProjectAddResponse project in Model)
-        {
-            <tr>
-                <td>@project.ProjectId</td>
-                <td>@project.Title</td>
-                <td>@project.Description</td>
-                <td>@project.GitHubRepoName</td>
-                <td>@project.GitHubViews</td>
-                <td>
-                    <ul>
-                        <li><img src="@project.Images[0].ImageUrl" alt="First screenshot" />
-                    </ul>
-                </td>
-            </tr>
-        }
-        <!-- Add more rows dynamically here -->
-    </tbody>
+    <!-- Loop through the projects and add a row for each project -->
+    @foreach(ProjectAddResponse project in Model)
+    {
+        <tr>
+            <td>@project.ProjectId</td>
+            <td>@project.Title</td>
+            <td>@project.Description</td>
+            <td>@project.GitHubRepoName</td>
+            <td>@project.GitHubViews</td>
+            <td>
+                @if (project.Images != null && project.Images.Any())
+                {
+                    <img src="@project.Images.FirstOrDefault()?.ImageUrl" alt="Project Image" width="200" height="200" />
+                }
+                else
+                {
+                    <span>No image available</span>
+                }
+            </td>
+        </tr>
+    }
+</tbody>
+
 </table>

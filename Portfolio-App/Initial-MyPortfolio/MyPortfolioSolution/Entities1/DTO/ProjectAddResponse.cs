@@ -11,7 +11,7 @@ namespace MyPortfolioSolution.DTO
         public string DateCreatedFormatted { get; set; } = string.Empty;
         public string GitHubRepoName { get; set; } = string.Empty;
         public string GitHubViews { get; set; } = string.Empty;
-        public List<ImageAddResponse> Images { get; set; } = new();
+        public List<ImageAddResponse>? Images { get; set; }
     }
 
 }

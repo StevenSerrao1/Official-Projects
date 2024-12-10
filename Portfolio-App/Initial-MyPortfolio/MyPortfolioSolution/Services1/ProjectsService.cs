@@ -20,7 +20,7 @@ namespace MyPortfolioSolution.Services1
             _imageService = imageService;
         }
 
-        public async Task<ProjectAddResponse> AddProject(ProjectAddRequest par, List<ImageAddRequest> iar)
+        public async Task<ProjectAddResponse> AddProject(ProjectAddRequest par)
         {
             // Create the project from ProjectAddRequest
             Project project = par.ToProject();
@@ -30,12 +30,15 @@ namespace MyPortfolioSolution.Services1
 
             // Add project to context and save changes to get the ProjectId
             _context.Projects!.Add(project);
-            await _context.SaveChangesAsync(); // Save the project to get the ProjectId
+            await _context.SaveChangesAsync();
 
-            // Now create and link images using the ImageService
-            List<Images> images = await _imageService.CreateImagesForProject(iar, project.ProjectId);
+            // Create and link images using the ImageService
+            List<Images> images = await _imageService.CreateImagesForProject(
+                project.Images!.Select(image => image.ToImageAddRequest()).ToList(),
+                project.ProjectId
+            );
 
-            // Link images to the project (Images property should be a list of Images entities)
+            // Link images to the project
             project.Images = images;
 
             // Convert the Images entities to ImageAddResponse DTOs
@@ -43,14 +46,14 @@ namespace MyPortfolioSolution.Services1
 
             // Map Project to ProjectAddResponse, including the image responses
             ProjectAddResponse response = project.ToProjectAddReponse();
-            response.Images = imageAddResponses;  // Ensure the ProjectAddResponse class has an Images property for the responses
+            response.Images = imageAddResponses;
 
             // Save the images and the linked project to the context
             await _context.SaveChangesAsync();
 
-            // Return the response
             return response;
         }
+
 
         public async Task<List<ProjectViewModel>> LoadProjects()
         {

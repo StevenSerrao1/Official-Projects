@@ -25,24 +25,23 @@ namespace MyPortfolioSolution.Controllers
             return View(projects);
         }
 
-        [HttpGet("[action]")] // admin/createprojectget
+        [HttpGet("[action]")] // admin/createproject
         public IActionResult CreateProject()
         {
-            return View();
+            return View(new ProjectAddRequest { Images = new List<ImageAddRequest>(new ImageAddRequest[2]) });
         }
 
         [HttpPost("[action]")]
-        public IActionResult CreateProject([FromForm] ProjectAddRequest par, [FromForm]  List<ImageAddRequest> iar)
+        public async Task<IActionResult> CreateProject(ProjectAddRequest par)
         {
-            // Dummy logic to return a successful response without doing actual processing
-            Project dummyProject = new Project
+            if(!ModelState.IsValid)
             {
-                Title = "Dummy Project",
-                Description = "This is a dummy project to avoid errors."
-            };
+                return View(par);
+            }
 
-            // Simulate async operation and return an Ok result with the dummy project
-            return Ok(dummyProject);
+            ProjectAddResponse projectAddResponse = await _projectsService.AddProject(par);
+
+            return RedirectToAction("AdminPanel");
         }
     }
 }

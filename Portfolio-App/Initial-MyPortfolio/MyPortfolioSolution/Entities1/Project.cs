@@ -22,7 +22,7 @@ namespace MyPortfolioSolution.Entities1
         [StringLength(800)]
         public string Description { get; set; } = string.Empty;
 
-        [StringLength(200)]
+        [StringLength(500)]
         [Url]
         public string ProjectURL { get; set; } = string.Empty;
 

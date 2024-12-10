@@ -13,7 +13,7 @@ namespace MyPortfolioSolution.ServiceContracts1
         /// <param name="par">Object of ProjectAddRequest type</param>
         /// <param name="iar">List of ImageAddRequest type</param>
         /// <returns>An Object of ProjectAddResponse type</returns>
-        public Task<ProjectAddResponse> AddProject(ProjectAddRequest par, List<ImageAddRequest> iar);
+        public Task<ProjectAddResponse> AddProject(ProjectAddRequest par);
 
         /// <summary>
         /// Loads a list of all projects currently in Projects DB (Available through CLIENT and ADMIN API)

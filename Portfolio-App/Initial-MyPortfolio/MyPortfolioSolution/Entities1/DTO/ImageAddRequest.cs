@@ -17,7 +17,7 @@ namespace MyPortfolioSolution.DTO
             {
                 ImageUrl = request.ImageUrl,
                 Caption = request.Caption,
-                AltText = request.AltText
+                AltText = request.AltText              
             };
         }
     }
