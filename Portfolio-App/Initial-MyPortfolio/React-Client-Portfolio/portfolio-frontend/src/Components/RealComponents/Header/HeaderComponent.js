@@ -9,7 +9,7 @@ function HeaderComponent() {
       <nav>
         <ul>
           <li><Link to="/">About Me</Link></li> {/* Home link */}
-          <li><Link to="#projects">Projects</Link></li> {/* Projects link */}
+          <li><a href="#projects">Projects</a></li> {/* Projects link */}
           <li><Link to="/">Contact Me</Link></li> {/* Contact link */}
         </ul>
       </nav>

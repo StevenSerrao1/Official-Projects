@@ -29,6 +29,8 @@ namespace MyPortfolioSolution.ServiceContracts1
         /// <returns>Sorted List<Project> collection based on Sort enum</returns>
         public Task<List<Project>> GetSortedProjects(Sort sort);
 
-        public Task<bool> DeleteProject();
+        public Task<Project> GetProjectById(int? id);
+
+        public Task<bool> DeleteProject(int? id);
     }
 }

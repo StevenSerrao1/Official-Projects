@@ -68,13 +68,32 @@
     background-color: #0056b3;
   }
   
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: #007bff;
+  .swiper-button-prev, .swiper-button-next {
+    position: absolute;
+    top: 50%;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
   }
   
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    color: #0056b3;
+  .swiper-button-prev {
+    left: 10px;
   }
+  
+  .swiper-button-next {
+    right: 10px;
+  }
+  
+  .swiper-button-prev::after, .swiper-button-next::after {
+    font-size: 20px;
+    color: black;
+  }
+  
+  
+
   

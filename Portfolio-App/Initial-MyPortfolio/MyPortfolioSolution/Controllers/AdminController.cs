@@ -25,6 +25,8 @@ namespace MyPortfolioSolution.Controllers
             return View(projects);
         }
 
+        #region Create Controllers
+
         [HttpGet("[action]")] // admin/createproject
         public IActionResult CreateProject()
         {
@@ -42,6 +44,14 @@ namespace MyPortfolioSolution.Controllers
             ProjectAddResponse projectAddResponse = await _projectsService.AddProject(par);
 
             return RedirectToAction("AdminPanel");
+        }
+
+        #endregion
+
+        [HttpGet("[action]")]
+        public IActionResult DeleteProject()
+        {
+            return View();
         }
     }
 }

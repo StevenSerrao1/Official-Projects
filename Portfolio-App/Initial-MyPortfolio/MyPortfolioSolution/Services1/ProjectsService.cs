@@ -54,7 +54,6 @@ namespace MyPortfolioSolution.Services1
             return response;
         }
 
-
         public async Task<List<ProjectViewModel>> LoadProjects()
         {
             List<ProjectViewModel> projects = await _context.Projects!
@@ -95,9 +94,49 @@ namespace MyPortfolioSolution.Services1
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteProject()
+        public async Task<Project> GetProjectById(int? id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+            {
+                throw new ArgumentNullException(nameof(id), "Id cannot be null.");
+            }
+
+            Project? projectRetrieved = await _context.Projects!
+                .FirstOrDefaultAsync(p => p.ProjectId == id);
+
+            if (projectRetrieved == null)
+            {
+                // Handle the case where the project doesn't exist
+                throw new KeyNotFoundException($"Project with ID {id} not found.");
+            }
+
+            return projectRetrieved;
+        }
+
+        public async Task<bool> DeleteProject(int? id)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException(nameof(id), "Id cannot be null.");
+            }
+
+            // Retrieve the project directly from the context
+            Project? projectToDelete = await GetProjectById(id);
+
+            if (projectToDelete == null)
+            {
+                // Handle the case where the project doesn't exist
+                throw new KeyNotFoundException($"Project with ID {id} not found.");
+            }
+
+            // Remove the project from the context
+            _context.Projects!.Remove(projectToDelete);
+
+            // Save the changes to the database
+            await _context.SaveChangesAsync();
+
+            // Return true if the project was successfully deleted (i.e., no longer in the database)
+            return true;
         }
     }
 }
