@@ -5,43 +5,59 @@
     Layout = "~/Views/Admin/_AdminLayout.cshtml";
 }
 
-<h1>Admin Panel</h1>
-<p>Here, you can Create, Read, Update and Delete projects for the portfolio app</p>
+<link rel="stylesheet" href="~/Stylesheets/admin-panel.css" />
 
+<div class="admin-panel">
+    <h1 class="admin-panel-title">Admin Panel</h1>
+    <p class="admin-panel-description">
+        Here, you can Create, Read, Update, and Delete projects for the portfolio app.
+    </p>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>ProjectID</th>
-            <th>ProjectName</th>
-            <th>ProjectDescription</th>
-            <th>GitHubRepoName</th>
-            <th>GitHubViews</th>
-            <th>Images</th>
-        </tr>
-    </thead>
-    <tbody>
-    <!-- Loop through the projects and add a row for each project -->
-    @foreach(ProjectAddResponse project in Model)
-    {
-        <tr>
-            <td>@project.ProjectId</td>
-            <td>@project.Title</td>
-            <td>@project.Description</td>
-            <td>@project.GitHubRepoName</td>
-            <td>@project.GitHubViews</td>
-            <td>
-                @if (project.Images != null && project.Images.Any())
-                {
-                    <img src="@project.Images.FirstOrDefault()?.ImageUrl" alt="Project Image" width="200" height="200" />
-                }
-                else
-                {
-                    <span>No image available</span>
-                }
-            </td>
-        </tr>
-    }
-</tbody>
+    <table class="admin-table">
+        <thead>
+            <tr class="admin-table-header">
+                <th>Project ID</th>
+                <th>Project Name</th>
+                <th>Project Description</th>
+                <th>GitHub Repo Name</th>
+                <th>GitHub Views</th>
+                <th>Images</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ProjectAddResponse project in Model)
+            {
+                <tr class="admin-table-row">
+                    <td class="admin-table-cell">@project.ProjectId</td>
+                    <td class="admin-table-cell">@project.Title</td>
+                    <td class="admin-table-cell">@project.Description</td>
+                    <td class="admin-table-cell">@project.GitHubRepoName</td>
+                    <td class="admin-table-cell">@project.GitHubViews</td>
+                    <td class="admin-table-cell">
+                        @if (project.Images != null && project.Images.Any())
+                        {
+                            <img src="@project.Images.FirstOrDefault()?.ImageUrl"
+                                 alt="Project Image"
+                                 class="admin-table-image" />
+                        }
+                        else
+                        {
+                            <span class="no-image">No image available</span>
+                        }
+                    </td>
+                    <td class="admin-table-cell">
+                        <ul class="action-list">
+                            <li class="action-item">Update Project</li>
+                            <li class="action-item">Delete Project</li>
+                        </ul>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-</table>
+    <footer class="admin-footer">
+        Admin Panel © @DateTime.Now.Year. All Rights Reserved.
+    </footer>
+</div>

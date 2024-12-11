@@ -60,6 +60,7 @@ namespace MyPortfolioSolution.Entities1
                 ProjectURL = project.ProjectURL,
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
                 GitHubViews = project.GitHubViews,
+                GitHubRepoName = project.GitHubRepoName,
                 Images = project.Images?.Select(image => new ImageViewModel
                 {
                     ImageUrl = image.ImageUrl,

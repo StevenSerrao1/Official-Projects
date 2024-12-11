@@ -9,7 +9,8 @@ namespace MyPortfolioSolution.ViewModels
         public string? FullDescription { get; set; }
         public string ProjectURL { get; set; } = string.Empty;
         public string DateCreatedFormatted { get; set; } = string.Empty;
-        public string? GitHubViews { get; set; } 
+        public string? GitHubViews { get; set; }
+        public string GitHubRepoName { get; set; } = string.Empty;
         public List<ImageViewModel> Images { get; set; } = new();
 
     }

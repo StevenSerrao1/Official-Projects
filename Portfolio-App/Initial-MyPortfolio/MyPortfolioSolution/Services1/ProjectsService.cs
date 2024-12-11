@@ -62,7 +62,12 @@ namespace MyPortfolioSolution.Services1
                 .Select(p => p.ToProjectModel())
                 .ToListAsync();  // Use ToListAsync() for async operation
 
-            Console.WriteLine(projects[0].ToString());
+            // Iterate through each project and fetch GitHub views asynchronously
+            foreach (var project in projects)
+            {
+                // Call the GitHub service to get the views asynchronously
+                project.GitHubViews = await _gitHubService.GetGitHubViewsAsync(project.GitHubRepoName);
+            }
 
             return projects;
         }

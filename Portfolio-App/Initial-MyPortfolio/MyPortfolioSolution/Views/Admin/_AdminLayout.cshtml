@@ -1,22 +1,22 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Stylesheets/admin-layout.css" />
 </head>
-<body>
+<body class="layout-body">
     <div class="navbar">
         <h1 class="main-header">Admin Panel</h1>
         <h4 class="greeting">Hello, Steven!</h4>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/admin/createproject">Create a Project</a></li>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="/admin/createproject" class="nav-link">Create a Project</a></li>
         </ul>
     </div>
-    <div>
+    <main class="content">
         @RenderBody()
-    </div>
+    </main>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
