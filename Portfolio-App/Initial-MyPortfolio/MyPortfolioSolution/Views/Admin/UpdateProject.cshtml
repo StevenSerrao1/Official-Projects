@@ -1,0 +1,101 @@
+﻿@model ProjectAddResponse
+
+@{
+    ViewBag.Title = "Edit Project";
+}
+
+<a href="/">Back to Home Page</a>
+<h2>Edit Project</h2>
+
+<div>
+    <form asp-controller="Projects" asp-action="UpdateProject" method="post">
+
+        <input type="hidden" asp-for="ProjectId" />
+
+        @* Project Title *@
+        <div>
+            <div>
+                <label asp-for="Title">Project Title:</label>
+            </div>
+            <div>
+                <input asp-for="Title" />
+                <span asp-validation-for="Title"></span>
+            </div>
+        </div>
+
+        @* Project Description *@
+        <div>
+            <div>
+                <label asp-for="Description">Description:</label>
+            </div>
+            <div>
+                <textarea asp-for="Description"></textarea>
+                <span asp-validation-for="Description"></span>
+            </div>
+        </div>
+
+        @* Project URL *@
+        <div>
+            <div>
+                <label asp-for="ProjectURL">Project URL:</label>
+            </div>
+            <div>
+                <input asp-for="ProjectURL" />
+                <span asp-validation-for="ProjectURL"></span>
+            </div>
+        </div>
+
+        @* GitHub Repository Name *@
+        <div>
+            <div>
+                <label asp-for="GitHubRepoName">GitHub Repository Name:</label>
+            </div>
+            <div>
+                <input asp-for="GitHubRepoName" />
+                <span asp-validation-for="GitHubRepoName"></span>
+            </div>
+        </div>
+
+        @* Project Image Details *@
+        <div>
+            <label>Project Images:</label>
+
+            <div id="image-details-container">
+                @if (Model.Images != null && Model.Images.Any())
+                {
+                    @for (int i = 0; i < Model.Images.Count; i++)
+                    {
+                        <div class="image-details">
+                            <div>
+                                <label for="ImageUrl_@i">Image URL:</label>
+                                <input type="text" id="ImageUrl_@i" name="Images[@i].ImageUrl" value="@Model.Images[i].ImageUrl" />
+                            </div>
+
+                            <div>
+                                <label for="Caption_@i">Caption:</label>
+                                <input type="text" id="Caption_@i" name="Images[@i].Caption" value="@Model.Images[i].Caption" />
+                            </div>
+
+                            <div>
+                                <label for="AltText_@i">Alt Text:</label>
+                                <input type="text" id="AltText_@i" name="Images[@i].AltText" value="@Model.Images[i].AltText" />
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No images associated with this project.</p>
+                }
+            </div>
+        </div>
+
+
+        @* Submit *@
+        <div>
+            <button type="submit">Update</button>
+        </div>
+
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>

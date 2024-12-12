@@ -56,6 +56,7 @@ namespace MyPortfolioSolution.Controllers
             return View("Views/Admin/DeleteProject.cshtml", projectRetrieved);
         }
 
+        [HttpPost("[action]/{id}")]
         public async Task<IActionResult> DeleteProjectPost([FromForm] int id)
         {
             if (id <= 0)
@@ -73,6 +74,33 @@ namespace MyPortfolioSolution.Controllers
             }
 
             TempData["SuccessMessage"] = "Project deleted successfully.";
+            return RedirectToAction("AdminPanel");
+        }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> UpdateProject(int id)
+        {
+            Project? project = await _projectsService.GetProjectById(id);
+
+            ProjectAddResponse par = project.ToProjectAddReponse();
+
+            return View(par);
+        }
+
+        [HttpPost("[action]/{id}")]
+        public async Task<IActionResult> UpdateProject(ProjectAddResponse projectAdd)
+        {
+            // Fetch the existing project to confirm it exists
+            Project? project = await _projectsService.GetProjectById(projectAdd.ProjectId);
+
+
+            if (project == null)
+            {
+                return BadRequest("The specified project does not exist.");
+            }
+
+            // Service handles the update internally
+            await _projectsService.UpdateProject(projectAdd);
             return RedirectToAction("AdminPanel");
         }
 

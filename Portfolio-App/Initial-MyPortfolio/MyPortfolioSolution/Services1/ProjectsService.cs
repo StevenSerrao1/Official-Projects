@@ -89,11 +89,6 @@ namespace MyPortfolioSolution.Services1
             return projects;
         }
 
-        public Task<List<Project>> GetSortedProjects(Sort sort)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<Project> GetProjectById(int? id)
         {
             if (id == null)
@@ -102,9 +97,12 @@ namespace MyPortfolioSolution.Services1
             }
 
             Project? projectRetrieved = await _context.Projects!
+                .Include(p => p.Images)
                 .FirstOrDefaultAsync(p => p.ProjectId == id);
 
-            if (projectRetrieved == null)
+            projectRetrieved.GitHubViews = _gitHubService.GetGitHubViewsAsync(projectRetrieved.GitHubRepoName).ToString();
+
+                if (projectRetrieved == null)
             {
                 // Handle the case where the project doesn't exist
                 throw new KeyNotFoundException($"Project with ID {id} not found.");
@@ -138,5 +136,37 @@ namespace MyPortfolioSolution.Services1
             // Return true if the project was successfully deleted (i.e., no longer in the database)
             return true;
         }
+
+        public async Task<ProjectAddResponse> UpdateProject(ProjectAddResponse? project)
+        {
+            if (project == null) throw new ArgumentNullException(nameof(project));
+
+            // Fetch the existing project
+            Project? existingProject = await GetProjectById(project.ProjectId);
+
+            if (existingProject == null) throw new ArgumentException("ProjectId does not exist");
+
+            // Update the properties (do not modify ProjectId)
+            existingProject.Title = project.Title;
+            existingProject.Description = project.Description;
+            existingProject.ProjectURL = project.ProjectURL;
+            existingProject.GitHubRepoName = project.GitHubRepoName;
+
+            // Handle Images collection (if necessary)
+            if (project.Images.Count != 0)
+            {
+                existingProject.Images!.Clear(); // Remove existing images
+                foreach (var image in project.Images)
+                {
+                    existingProject.Images.Add(image.ToImage()); // Add new images
+                }
+            }
+
+            // Save changes
+            await _context.SaveChangesAsync();
+
+            return existingProject.ToProjectAddReponse();
+        }
+
     }
 }

@@ -19,6 +19,7 @@
                 <th>Project ID</th>
                 <th>Project Name</th>
                 <th>Project Description</th>
+                <th>Date Created</th>
                 <th>GitHub Repo Name</th>
                 <th>GitHub Views</th>
                 <th>Images</th>
@@ -32,14 +33,18 @@
                     <td class="admin-table-cell">@project.ProjectId</td>
                     <td class="admin-table-cell">@project.Title</td>
                     <td class="admin-table-cell">@project.Description</td>
+                    <td class="admin-table-cell">@project.DateCreatedFormatted</td>
                     <td class="admin-table-cell">@project.GitHubRepoName</td>
                     <td class="admin-table-cell">@project.GitHubViews</td>
                     <td class="admin-table-cell">
                         @if (project.Images != null && project.Images.Any())
                         {
-                            <img src="@project.Images.FirstOrDefault()?.ImageUrl"
-                                 alt="Project Image"
-                                 class="admin-table-image" />
+                            @foreach(ImageAddResponse img in project.Images)
+                            {
+                                <img src="@img?.ImageUrl"
+                                     alt="Project Image"
+                                     class="admin-table-image" />
+                            }  
                         }
                         else
                         {
@@ -48,7 +53,14 @@
                     </td>
                     <td class="admin-table-cell">
                         <ul class="action-list">
-                            <li class="action-item">Update Project</li>
+                            <li class="action-item">
+                                <a asp-controller="Admin"
+                                   asp-action="UpdateProject"
+                                   asp-route-id="@project.ProjectId"
+                                   class="btn btn-danger">
+                                    Update Project
+                                </a>
+                            </li>
                             <li class="action-item">
                                 <a asp-controller="Admin"
                                    asp-action="DeleteProjectGet"

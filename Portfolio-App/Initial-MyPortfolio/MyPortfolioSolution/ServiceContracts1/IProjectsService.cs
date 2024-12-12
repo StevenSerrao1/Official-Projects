@@ -22,15 +22,10 @@ namespace MyPortfolioSolution.ServiceContracts1
         public Task<List<ProjectViewModel>> LoadProjects();
         public Task<List<ProjectAddResponse>> LoadAdminProjects();
 
-        /// <summary>
-        /// Sort projects based on newest, oldest or most viewed on Github
-        /// </summary>
-        /// <param name="sort">Order of sorting for project view</param>
-        /// <returns>Sorted List<Project> collection based on Sort enum</returns>
-        public Task<List<Project>> GetSortedProjects(Sort sort);
-
         public Task<Project> GetProjectById(int? id);
 
         public Task<bool> DeleteProject(int? id);
+
+        public Task<ProjectAddResponse> UpdateProject(ProjectAddResponse? project);
     }
 }
