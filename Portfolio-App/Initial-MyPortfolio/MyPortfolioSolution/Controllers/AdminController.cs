@@ -48,10 +48,33 @@ namespace MyPortfolioSolution.Controllers
 
         #endregion
 
-        [HttpGet("[action]")]
-        public IActionResult DeleteProject()
+        [HttpGet("[action]/{id?}")]
+        public async Task<IActionResult> DeleteProjectGet(int? id)
         {
-            return View();
+            Project projectRetrieved = await _projectsService.GetProjectById(id);
+
+            return View("Views/Admin/DeleteProject.cshtml", projectRetrieved);
         }
+
+        public async Task<IActionResult> DeleteProjectPost([FromForm] int id)
+        {
+            if (id <= 0)
+            {
+                TempData["ErrorMessage"] = "Invalid project ID.";
+                return RedirectToAction("AdminPanel");
+            }
+
+            bool deletion = await _projectsService.DeleteProject(id);
+
+            if (!deletion)
+            {
+                TempData["ErrorMessage"] = "Failed to delete the project.";
+                return RedirectToAction("AdminPanel");
+            }
+
+            TempData["SuccessMessage"] = "Project deleted successfully.";
+            return RedirectToAction("AdminPanel");
+        }
+
     }
 }

@@ -49,7 +49,14 @@
                     <td class="admin-table-cell">
                         <ul class="action-list">
                             <li class="action-item">Update Project</li>
-                            <li class="action-item">Delete Project</li>
+                            <li class="action-item">
+                                <a asp-controller="Admin"
+                                   asp-action="DeleteProjectGet"
+                                   asp-route-id="@project.ProjectId"
+                                   class="btn btn-danger">
+                                    Delete Project
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
