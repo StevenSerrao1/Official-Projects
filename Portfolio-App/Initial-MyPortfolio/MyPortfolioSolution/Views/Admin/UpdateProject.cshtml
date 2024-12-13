@@ -4,98 +4,80 @@
     ViewBag.Title = "Edit Project";
 }
 
-<a href="/">Back to Home Page</a>
-<h2>Edit Project</h2>
+<link rel="stylesheet" href="~/Stylesheets/admin-panel.css" />
 
-<div>
+<body class="admin-panel">
+    <a href="/" class="btn btn-secondary">Back to Home Page</a>
+    <h2 class="admin-panel-title">Edit Project</h2>
+
     <form asp-controller="Projects" asp-action="UpdateProject" method="post">
-
         <input type="hidden" asp-for="ProjectId" />
 
-        @* Project Title *@
-        <div>
-            <div>
-                <label asp-for="Title">Project Title:</label>
-            </div>
-            <div>
-                <input asp-for="Title" />
-                <span asp-validation-for="Title"></span>
-            </div>
+        <!-- Project Title -->
+        <div class="form-group small-margin">
+            <label asp-for="Title" class="admin-label">Project Title:</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
         </div>
 
-        @* Project Description *@
-        <div>
-            <div>
-                <label asp-for="Description">Description:</label>
-            </div>
-            <div>
-                <textarea asp-for="Description"></textarea>
-                <span asp-validation-for="Description"></span>
-            </div>
+        <!-- Project Description -->
+        <div class="form-group small-margin">
+            <label asp-for="Description" class="admin-label">Description:</label>
+            <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
         </div>
 
-        @* Project URL *@
-        <div>
-            <div>
-                <label asp-for="ProjectURL">Project URL:</label>
-            </div>
-            <div>
-                <input asp-for="ProjectURL" />
-                <span asp-validation-for="ProjectURL"></span>
-            </div>
+        <!-- Project URL -->
+        <div class="form-group small-margin">
+            <label asp-for="ProjectURL" class="admin-label">Project URL:</label>
+            <input asp-for="ProjectURL" class="form-control" />
+            <span asp-validation-for="ProjectURL" class="text-danger"></span>
         </div>
 
-        @* GitHub Repository Name *@
-        <div>
-            <div>
-                <label asp-for="GitHubRepoName">GitHub Repository Name:</label>
-            </div>
-            <div>
-                <input asp-for="GitHubRepoName" />
-                <span asp-validation-for="GitHubRepoName"></span>
-            </div>
+        <!-- GitHub Repository Name -->
+        <div class="form-group small-margin">
+            <label asp-for="GitHubRepoName" class="admin-label">GitHub Repository Name:</label>
+            <input asp-for="GitHubRepoName" class="form-control" />
+            <span asp-validation-for="GitHubRepoName" class="text-danger"></span>
         </div>
 
-        @* Project Image Details *@
-        <div>
-            <label>Project Images:</label>
+        <!-- Project Image Details -->
+        <div class="form-group small-margin">
+            <label class="admin-label">Project Images:</label>
 
-            <div id="image-details-container">
+            <div id="image-details-container" class="small-margin">
                 @if (Model.Images != null && Model.Images.Any())
                 {
                     @for (int i = 0; i < Model.Images.Count; i++)
                     {
-                        <div class="image-details">
-                            <div>
-                                <label for="ImageUrl_@i">Image URL:</label>
-                                <input type="text" id="ImageUrl_@i" name="Images[@i].ImageUrl" value="@Model.Images[i].ImageUrl" />
-                            </div>
+                        <div class="image-details small-margin">
+                            <label for="ImageUrl_@i" class="admin-label">Image URL:</label>
+                            <input type="text" id="ImageUrl_@i" name="Images[@i].ImageUrl" value="@Model.Images[i].ImageUrl" class="form-control" />
 
-                            <div>
-                                <label for="Caption_@i">Caption:</label>
-                                <input type="text" id="Caption_@i" name="Images[@i].Caption" value="@Model.Images[i].Caption" />
-                            </div>
+                            <label for="Caption_@i" class="admin-label">Caption:</label>
+                            <input type="text" id="Caption_@i" name="Images[@i].Caption" value="@Model.Images[i].Caption" class="form-control" />
 
-                            <div>
-                                <label for="AltText_@i">Alt Text:</label>
-                                <input type="text" id="AltText_@i" name="Images[@i].AltText" value="@Model.Images[i].AltText" />
-                            </div>
+                            <label for="AltText_@i" class="admin-label">Alt Text:</label>
+                            <input type="text" id="AltText_@i" name="Images[@i].AltText" value="@Model.Images[i].AltText" class="form-control" />
                         </div>
                     }
                 }
                 else
                 {
-                    <p>No images associated with this project.</p>
+                    <p class="no-image">No images associated with this project.</p>
                 }
             </div>
         </div>
 
-
-        @* Submit *@
-        <div>
-            <button type="submit">Update</button>
+        <!-- Submit -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
         </div>
 
-        <div asp-validation-summary="All"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
     </form>
-</div>
+
+    <footer class="admin-footer">
+        <p>Admin Panel Footer - All rights reserved</p>
+    </footer>
+</body>

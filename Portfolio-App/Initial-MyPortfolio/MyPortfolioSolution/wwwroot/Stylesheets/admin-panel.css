@@ -92,3 +92,13 @@
     width: 100%;
     font-size: 0.9rem;
 }
+
+.super-margin {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.small-margin {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
