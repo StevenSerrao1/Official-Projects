@@ -17,6 +17,11 @@ builder.Services.AddControllersWithViews();
 // Add environment variables to configuration
 builder.Configuration.AddEnvironmentVariables();
 
+builder.Services.AddHttpClient<EmailService>(client =>
+{
+    client.DefaultRequestHeaders.Add("api-key", Environment.GetEnvironmentVariable("BrevoApi"));
+});
+
 // DB SETUP SERVICES
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STR");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -65,6 +70,7 @@ if (app.Environment.IsDevelopment())
     //Console.WriteLine($"Database Password: {Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}");
     Console.WriteLine($"Connection Str: {Environment.GetEnvironmentVariable("CONNECTION_STR")}");
     Console.WriteLine($"GitHubAPI Str: {Environment.GetEnvironmentVariable("REPOPublicAccessToken")}");
+    Console.WriteLine($"Brevo Str: {Environment.GetEnvironmentVariable("BrevoApi")}");
 }
 
 // Enable CORS

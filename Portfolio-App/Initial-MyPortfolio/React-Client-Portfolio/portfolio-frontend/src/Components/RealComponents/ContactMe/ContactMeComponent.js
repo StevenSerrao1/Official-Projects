@@ -16,10 +16,28 @@ const ContactMe = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form submitted with data:", formData);
-    // Here you can handle form submission, e.g., sending data to your backend.
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent page refresh
+
+    try {
+      const response = await fetch("https://official-projects.onrender.com/api/projects/contactform", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData) // Send the form data
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (err) {
+      console.error("Error occurred:", err);
+      alert("An error occurred while sending your message.");
+    }
   };
 
   return (

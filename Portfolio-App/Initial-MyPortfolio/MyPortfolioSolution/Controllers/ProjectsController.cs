@@ -13,12 +13,14 @@ namespace MyPortfolioSolution.Controllers
         private readonly ApplicationDbContext _context;
         private readonly ILogger<ProjectsController> _logger;
         private readonly IProjectsService _projectsService;
+        private readonly EmailService _emailService;
 
-        public ProjectsController(ApplicationDbContext context, ILogger<ProjectsController> logger, IProjectsService projectsService)
+        public ProjectsController(ApplicationDbContext context, ILogger<ProjectsController> logger, IProjectsService projectsService, EmailService emailService)
         {
             _context = context;
             _logger = logger;
             _projectsService = projectsService;
+            _emailService = emailService;
         }
 
         [HttpGet("[action]")]
@@ -36,5 +38,30 @@ namespace MyPortfolioSolution.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+        [HttpPost("[action]")]
+        public async Task<IActionResult> ContactForm([FromBody] ContactViewModel model) // api/contact/contactform
+        {
+            try
+            {
+                if (await _emailService.SendEmailAsync(model.Name, model.Email, model.Message))
+                {
+                    return Ok(new { message = "Email sent successfully!" });
+                }
+                return StatusCode(500, new { message = "Email failed to send." });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                return StatusCode(500, new { message = "An unexpected error occurred.", error = ex.Message });
+            }
+        }
+        [HttpGet("[action]")]
+        public IActionResult Test()
+        {
+            return Ok("Contact API is working!");
+        }
     }
+
+
 }
