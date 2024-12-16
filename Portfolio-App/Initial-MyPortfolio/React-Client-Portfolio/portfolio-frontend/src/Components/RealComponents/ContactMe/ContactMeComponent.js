@@ -1,18 +1,25 @@
 import React, { useState } from "react";
-import styles from "./ContactMeComponent.module.css"; // Import the CSS module
+import {
+  Box,
+  Button,
+  TextField,
+  Typography,
+  Container,
+  Paper,
+} from "@mui/material";
 
 const ContactMe = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -20,13 +27,16 @@ const ContactMe = () => {
     e.preventDefault(); // Prevent page refresh
 
     try {
-      const response = await fetch("https://official-projects.onrender.com/api/projects/contactform", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData) // Send the form data
-      });
+      const response = await fetch(
+        "https://official-projects.onrender.com/api/projects/contactform",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData), // Send the form data
+        }
+      );
 
       if (response.ok) {
         alert("Message sent successfully!");
@@ -41,51 +51,54 @@ const ContactMe = () => {
   };
 
   return (
-    <section id="contact" className={styles.contactSection}>
-      <h2>Contact Me</h2>
-      <form onSubmit={handleSubmit} className={styles.contactForm}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email"
-            required
-          />
-        </div>
-
-        <div className={styles.formGroup}>
-          <label htmlFor="message">Message</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            rows="5"
-            required
-          />
-        </div>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
+    <Container id="contact" maxWidth="sm" sx={{ marginTop: 5 }}>
+      <Paper elevation={3} sx={{ padding: 3 }}>
+        <Typography variant="h4" component="h2" gutterBottom>
+          Contact Me
+        </Typography>
+        <form onSubmit={handleSubmit}>
+          <Box sx={{ marginBottom: 2 }}>
+            <TextField
+              label="Name"
+              variant="outlined"
+              fullWidth
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </Box>
+          <Box sx={{ marginBottom: 2 }}>
+            <TextField
+              label="Email"
+              variant="outlined"
+              type="email"
+              fullWidth
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </Box>
+          <Box sx={{ marginBottom: 2 }}>
+            <TextField
+              label="Message"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={5}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </Box>
+          <Button type="submit" variant="contained" color="primary" fullWidth>
+            Send Message
+          </Button>
+        </form>
+      </Paper>
+    </Container>
   );
 };
 
