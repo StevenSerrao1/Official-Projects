@@ -15,6 +15,7 @@ function FooterComponent() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        marginTop: "50px",
         gap: 2,
       }}
     >
