@@ -7,7 +7,7 @@ const AboutMe = () => {
       <Container>
         {/* Heading */}
         <Typography variant="h4" component="h2" gutterBottom>
-          About Me
+          Welcome to my professional full-stack dev portfolio!
         </Typography>
 
         {/* Content Section */}
@@ -15,11 +15,13 @@ const AboutMe = () => {
           {/* Text Content */}
           <Box sx={{ flex: 1 }}>
             <Typography variant="body1" component="p" sx={{ marginBottom: 2 }}>
-              Hi, I'm Steven! I'm passionate about backend development and building scalable, efficient web applications.
-              I specialize in technologies like ASP.NET Core and React, and I love working on both front-end and back-end projects.
+              Hey, I'm Steven! I’m primarily a backend developer who thrives on building scalable, efficient systems. My go-to tools for backend development are ASP.NET Core and React, and I’ve built countless APIs and full-stack apps focused on functionality and performance. I’m much more comfortable working with the logic and infrastructure behind an app than with the design elements on the front-end.
             </Typography>
             <Typography variant="body1" component="p" sx={{ marginBottom: 2 }}>
-              When I'm not coding, you can find me listening to music, playing basketball, or experimenting with new recipes in the kitchen.
+              While I’ve dabbled in the front-end using technologies like React and Blazor, my true passion lies in crafting solid backend architectures. On the Python side, Django is one of my favorites for quickly setting up clean and maintainable backends. I also have experience with Unity3D for game development, where I focus more on the technical side of creating interactive experiences rather than the artistic elements.
+            </Typography>
+            <Typography variant="body1" component="p" sx={{ marginBottom: 2 }}>
+              I’m all about solving problems with robust solutions. Whether I'm working on a complex API, optimizing database queries, or improving system performance, my focus is always on creating something scalable, maintainable, and efficient. I’m constantly striving to level up my skills and stay ahead of the curve when it comes to backend technologies.
             </Typography>
           </Box>
 
