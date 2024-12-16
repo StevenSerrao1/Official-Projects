@@ -2,6 +2,7 @@ import HeaderComponent from "../../Components/RealComponents/Header/HeaderCompon
 import AboutMe from "../../Components/RealComponents/AboutMe/AboutMeComponent";
 import Projects from "../../Components/RealComponents/ProjectContent/ProjectsComponent";
 import ContactMe from "../../Components/RealComponents/ContactMe/ContactMeComponent";
+import FooterComponent from "../../Components/RealComponents/Footer/FooterComponent";
 
 function HomePage()
 {
@@ -11,6 +12,7 @@ function HomePage()
             <AboutMe />
             <Projects />
             <ContactMe />
+            <FooterComponent />
         </div>
     );
 }
