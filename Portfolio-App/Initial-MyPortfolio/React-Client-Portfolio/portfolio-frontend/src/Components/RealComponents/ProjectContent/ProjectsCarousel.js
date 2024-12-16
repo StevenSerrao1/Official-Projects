@@ -7,7 +7,7 @@ import { Box, Typography, Button, Link as MuiLink } from "@mui/material";
 
 const ProjectsCarousel = ({ projects }) => {
   return (
-    <Box component="section" sx={{ padding: 4 }}>
+    <Box component="section" sx={{ padding: 4 }} id="projects">
       {/* Section Heading */}
       <Typography variant="h4" component="h2" gutterBottom sx={{ textAlign: "center", marginBottom: 4 }}>
         These Are My Projects
@@ -25,7 +25,7 @@ const ProjectsCarousel = ({ projects }) => {
         pagination={{ clickable: true }}
         navigation={true}
         style={{ padding: "0 20px" }}
-        id="projects"
+        
       >
         {projects.map((project) => (
           <SwiperSlide key={project.id}>
