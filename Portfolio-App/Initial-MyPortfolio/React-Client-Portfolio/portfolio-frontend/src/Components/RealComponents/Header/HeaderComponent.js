@@ -63,8 +63,7 @@ function HeaderComponent() {
         {/* Right Section: Navigation Links */}
         <Box sx={{ flex: "0 1 auto", display: "flex", gap: 1 }}>
           <Button
-            component={RouterLink}
-            to="/"
+            href="#about"
             color="inherit"
             sx={{
               textTransform: "none",

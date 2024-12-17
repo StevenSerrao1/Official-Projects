@@ -51,7 +51,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("https://official-projects-1-frontend.onrender.com")
+        policy.WithOrigins(["https://official-projects-1-frontend.onrender.com", "http://localhost:3000"])
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
