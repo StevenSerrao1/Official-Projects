@@ -20,7 +20,7 @@ function HeaderComponent() {
             gap: 2,
             flex: 1,
             justifyContent: "center",
-            marginLeft: "75px",  // Slight adjustment to center
+            marginLeft: "150px",  // Slight adjustment to center
           }}
         >
           <IconButton
@@ -103,6 +103,23 @@ function HeaderComponent() {
             }}
           >
             Contact Me
+          </Button>
+          <Button
+            href="https://StevenSerrao1.github.io/Official-Projects/assets/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="resume.pdf"
+            color="inherit"
+            sx={{
+              textTransform: "none",
+              border: "2px solid rgba(255, 255, 255, 0.3)", // Thin white border around the button
+              borderRadius: "20px", // Round the corners to make it a capsule
+              padding: "6px 20px", // Add padding for a good capsule size
+              display: "inline-flex", // Ensure proper alignment
+              alignItems: "center", // Center the text inside the button
+            }}
+          >
+            My CV
           </Button>
         </Box>
 
