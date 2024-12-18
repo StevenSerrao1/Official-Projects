@@ -43,8 +43,8 @@ const ExpandableProject = ({ project }) => {
 
                     {/* Display both images */}
                     <div style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
-                        <img src={project.images[0]} alt="Project Image 1" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
-                        <img src={project.images[1]} alt="Project Image 2" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
+                        <img src={project.images[0].imageUrl} alt="Project Image 1" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
+                        <img src={project.images[1].imageUrl} alt="Project Image 2" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
                     </div>
                 </DialogContent>
                 <DialogActions>

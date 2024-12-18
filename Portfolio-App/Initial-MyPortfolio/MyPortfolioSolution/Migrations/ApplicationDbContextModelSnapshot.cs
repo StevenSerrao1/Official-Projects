@@ -52,7 +52,7 @@ namespace MyPortfolioSolution.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.ToTable("Images");
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("MyPortfolioSolution.Entities1.Project", b =>
@@ -91,7 +91,7 @@ namespace MyPortfolioSolution.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 
             modelBuilder.Entity("MyPortfolioSolution.Entities1.Images", b =>
