@@ -25,7 +25,6 @@
         <p class="small-margin">@Model.ProjectId</p>
     </div>
 
-    <!-- Form to confirm deletion -->
     <form asp-controller="Admin" asp-action="DeleteProjectPost" method="post">
         <!-- Hidden input to pass the ProjectId -->
         <input type="hidden" name="id" value="@Model.ProjectId" />
@@ -36,6 +35,7 @@
         <!-- Cancel button to go back to the AdminPanel -->
         <a asp-controller="Admin" asp-action="AdminPanel" class="btn btn-secondary">Cancel</a>
     </form>
+
     <div class="super-margin"></div>
     <footer class="admin-footer">
         <p>Admin Panel Footer - All rights reserved</p>

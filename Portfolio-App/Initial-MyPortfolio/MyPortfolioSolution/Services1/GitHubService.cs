@@ -27,12 +27,29 @@ namespace MyPortfolioSolution.Services1
 
         public async Task<string> GetGitHubViewsAsync(string repoName)
         {
-
-            var request = new RepositoryTrafficRequest(TrafficDayOrWeek.Week);
-
-            var traffic = await _client.Repository.Traffic.GetViews(_owner, repoName, request);
-
-            return $"Total Views: {traffic.Count}, Unique Visitors: {traffic.Uniques}";
+            try
+            {
+                var request = new RepositoryTrafficRequest(TrafficDayOrWeek.Week);
+                var traffic = await _client.Repository.Traffic.GetViews(_owner, repoName, request);
+                return $"Total Views: {traffic.Count}, Unique Visitors: {traffic.Uniques}";
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"HTTP Request Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}"); // Logs stack trace
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+                }
+                return "Failed to retrieve data.";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"General Error: {ex.Message}");
+                Console.WriteLine($"Stack Trace: {ex.StackTrace}"); // Logs stack trace
+                return "An error occurred.";
+            }
         }
+
     }
 }

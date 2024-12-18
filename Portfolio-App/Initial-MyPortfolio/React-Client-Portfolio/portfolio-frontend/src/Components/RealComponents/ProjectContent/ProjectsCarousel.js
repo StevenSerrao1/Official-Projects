@@ -5,6 +5,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Box, Typography, Button, Link as MuiLink } from "@mui/material";
+import ExpandableProject from "./ExpandableProject";
 
 const ProjectsCarousel = ({ projects }) => {
   return (
@@ -122,13 +123,7 @@ const ProjectsCarousel = ({ projects }) => {
               </MuiLink>
 
               {/* Expand Project Placeholder */}
-              <Button
-                variant="outlined"
-                sx={{ marginTop: 2 }}
-                onClick={() => console.log(`Expand Project ${project.id}`)}
-              >
-                Expand Project
-              </Button>
+              <ExpandableProject project={project}/>
             </Box>
           </SwiperSlide>
         ))}

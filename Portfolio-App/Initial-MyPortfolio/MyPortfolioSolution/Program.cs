@@ -64,13 +64,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    //Console.WriteLine($"Database Host: {Environment.GetEnvironmentVariable("DATABASE_HOST")}");
-    //Console.WriteLine($"Database Title: {Environment.GetEnvironmentVariable("DATABASE_NAME")}");
-    //Console.WriteLine($"Database User: {Environment.GetEnvironmentVariable("DATABASE_USER")}");
-    //Console.WriteLine($"Database Password: {Environment.GetEnvironmentVariable("DATABASE_PASSWORD")}");
-    Console.WriteLine($"Connection Str: {Environment.GetEnvironmentVariable("CONNECTION_STR")}");
-    Console.WriteLine($"GitHubAPI Str: {Environment.GetEnvironmentVariable("REPOPublicAccessToken")}");
-    Console.WriteLine($"Brevo Str: {Environment.GetEnvironmentVariable("BrevoApi")}");
 }
 
 // Enable CORS

@@ -11,10 +11,12 @@ namespace MyPortfolioSolution.Controllers
     public class AdminController : Controller
     {
         private readonly IProjectsService _projectsService;
+        private readonly ILogger<AdminController> _logger;
 
-        public AdminController(IProjectsService proj)
+        public AdminController(IProjectsService proj, ILogger<AdminController> logger)
         {
             _projectsService = proj;
+            _logger = logger;
         }
 
         [HttpGet("/")]
@@ -23,6 +25,22 @@ namespace MyPortfolioSolution.Controllers
             List<ProjectAddResponse> projects = await _projectsService.LoadAdminProjects();
             
             return View(projects);
+        }
+
+        [HttpGet("[action]")]
+        public async Task<IActionResult> LoadAdminProjects() // admin/loadadminprojects
+        {
+            try
+            {
+                List<ProjectAddResponse> projects = await _projectsService.LoadAdminProjects();
+                return Ok(projects);
+            }
+            catch (Exception ex)
+            {
+                // Log the error (ex) here
+                _logger.LogError(ex, "An error occurred while loading projects.");
+                return StatusCode(500, "Internal server error");
+            }
         }
 
         #region Create Controllers
@@ -56,8 +74,8 @@ namespace MyPortfolioSolution.Controllers
             return View("Views/Admin/DeleteProject.cshtml", projectRetrieved);
         }
 
-        [HttpPost("[action]/{id}")]
-        public async Task<IActionResult> DeleteProjectPost([FromForm] int id)
+        [HttpPost("[action]/{id?}")]
+        public async Task<IActionResult> DeleteProjectPost([FromForm] int? id)
         {
             if (id <= 0)
             {
