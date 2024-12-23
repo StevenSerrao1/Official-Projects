@@ -7,6 +7,7 @@ namespace MyPortfolioSolution.DTO
         public int ImageId { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
         public string Caption { get; set; } = string.Empty;
+        public string AdditionalInfo { get; set; } = string.Empty;
         public string AltText { get; set; } = string.Empty;
         public int ProjectId { get; set; } // Only include the ID to show the link
     }
@@ -21,6 +22,7 @@ namespace MyPortfolioSolution.DTO
                 ImageUrl = image.ImageUrl,
                 Caption = image.Caption,
                 AltText = image.AltText,
+                AdditionalInfo = image.AdditionalInfo,
                 ProjectId = image.ProjectId
             };
         }

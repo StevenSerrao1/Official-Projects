@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Backdrop, CircularProgress } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 const ExpandableProject = ({ project }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const toggleExpand = () => {
-        setIsExpanded(prev => !prev);
+    const toggleExpand = (e) => {
+        e.stopPropagation(); // Prevents event interference with Swiper
+        setIsExpanded((prev) => !prev);
+        console.log("ExpandableProject isExpanded:", !isExpanded); // Debugging
     };
 
     return (
@@ -31,22 +33,69 @@ const ExpandableProject = ({ project }) => {
                 }}
             >
                 <DialogTitle>{project.title}</DialogTitle>
-                <DialogContent>
-                    {/* Project Full Description */}
-                    <p><strong>Description:</strong> {project.fullDescription}</p>
+                {isExpanded && ( // Lazy-load dialog content
+                    <DialogContent>
+                        {/* Project Full Description */}
+                        <p>
+                            <strong>Description:</strong> {project.fullDescription}
+                        </p>
 
-                    {/* Tech Stack */}
-                    <p><strong>Github Views:</strong> {project.gitHubViews}</p>
+                        {/* Image 1 */}
+                        {project.images && project.images[0] && (
+                            <div style={{ marginBottom: "20px" }}>
+                                <img
+                                    src={project.images[0].imageUrl}
+                                    alt={project.images[0].altText || "Project Image 1"}
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                        borderRadius: "5px",
+                                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                                    }}
+                                />
+                            </div>
+                        )}
 
-                    {/* Project URL */}
-                    <p><strong>URL:</strong> <a href={project.projectURL} target="_blank" rel="noopener noreferrer">{project.projectURL}</a></p>
+                        {/* Paragraph after image 1 */}
+                        <p>
+                            <strong>Additional Info:</strong> {project.images[0].additionalInfo}
+                        </p>
 
-                    {/* Display both images */}
-                    <div style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
-                        <img src={project.images[0].imageUrl} alt="Project Image 1" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
-                        <img src={project.images[1].imageUrl} alt="Project Image 2" style={{ width: "45%", height: "auto", borderRadius: "5px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} />
-                    </div>
-                </DialogContent>
+                        {/* Image 2 */}
+                        {project.images && project.images[1] && (
+                            <div style={{ marginBottom: "20px" }}>
+                                <img
+                                    src={project.images[1].imageUrl}
+                                    alt={project.images[1].altText || "Project Image 2"}
+                                    style={{
+                                        width: "100%",
+                                        height: "auto",
+                                        borderRadius: "5px",
+                                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                                    }}
+                                />
+                            </div>
+                        )}
+
+                        {/* Paragraph after image 2 */}
+                        <p>
+                            <strong>More Information:</strong> {project.images[1].additionalInfo}
+                        </p>
+
+                        {/* GitHub Views */}
+                        <p>
+                            <strong>GitHub Views:</strong> {project.gitHubViews}
+                        </p>
+
+                        {/* Project URL */}
+                        <p>
+                            <strong>URL:</strong>{" "}
+                            <a href={project.projectURL} target="_blank" rel="noopener noreferrer">
+                                {project.projectURL}
+                            </a>
+                        </p>
+                    </DialogContent>
+                )}
                 <DialogActions>
                     <Button onClick={toggleExpand} color="secondary" variant="contained">
                         Close

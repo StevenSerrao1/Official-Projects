@@ -1,13 +1,39 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Box, Typography, Button, Link as MuiLink } from "@mui/material";
+import { Box, Typography, Link as MuiLink } from "@mui/material";
 import ExpandableProject from "./ExpandableProject";
 
 const ProjectsCarousel = ({ projects }) => {
+  const swiperRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (projects && projects.length > 0) {
+      setIsLoading(false);
+    }
+  }, [projects]);
+
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "200px", // Ensure some height for the loading message
+        }}
+      >
+        <Typography variant="h6" color="textSecondary">
+          Loading Projects...
+        </Typography>
+      </Box>
+    );
+  }
+
   return (
     <Box component="section" sx={{ padding: 4 }} id="projects">
       {/* Section Heading */}
@@ -38,6 +64,10 @@ const ProjectsCarousel = ({ projects }) => {
           clickable: true,
         }}
         navigation={true}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          swiper.autoplay.start();
+        }}
         style={{
           padding: "0 20px",
         }}
@@ -72,11 +102,7 @@ const ProjectsCarousel = ({ projects }) => {
                     }}
                   />
                   {project.images[0].caption && (
-                    <Typography
-                      variant="caption"
-                      component="p"
-                      sx={{ marginTop: 1 }}
-                    >
+                    <Typography variant="caption" component="p" sx={{ marginTop: 1 }}>
                       {project.images[0].caption}
                     </Typography>
                   )}
@@ -93,18 +119,11 @@ const ProjectsCarousel = ({ projects }) => {
               </Typography>
               <Typography variant="body2" color="textSecondary">
                 Views on GitHub:{" "}
-                <MuiLink
-                  href={project.projectURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <MuiLink href={project.projectURL} target="_blank" rel="noopener noreferrer">
                   {project.gitHubViews}
                 </MuiLink>
               </Typography>
-              <Typography
-                variant="body1"
-                sx={{ textAlign: "center", marginY: 2 }}
-              >
+              <Typography variant="body1" sx={{ textAlign: "center", marginY: 2 }}>
                 {project.shortDescription}
               </Typography>
 
@@ -122,8 +141,8 @@ const ProjectsCarousel = ({ projects }) => {
                 Go To Project
               </MuiLink>
 
-              {/* Expand Project Placeholder */}
-              <ExpandableProject project={project}/>
+              {/* Expandable Project */}
+              <ExpandableProject project={project} />
             </Box>
           </SwiperSlide>
         ))}
@@ -133,12 +152,12 @@ const ProjectsCarousel = ({ projects }) => {
       <style>
         {`
           .swiper-pagination {
-            bottom: 43px !important; /* Move dots lower */
+            bottom: 43px !important;
           }
 
           .swiper-button-prev,
           .swiper-button-next {
-            color: #1976d2; /* Default navigation arrow color (MUI primary blue) */
+            color: #1976d2;
           }
         `}
       </style>

@@ -59,6 +59,10 @@
 
                             <label for="AltText_@i" class="admin-label">Alt Text:</label>
                             <input type="text" id="AltText_@i" name="Images[@i].AltText" value="@Model.Images[i].AltText" class="form-control" />
+
+                            <!-- New info field for each image -->
+                            <label for="AdditionalInfo_@i" class="admin-label">Additional Info:</label>
+                            <textarea id="AdditionalInfo_@i" name="Images[@i].AdditionalInfo" class="form-control">@Model.Images[i].AdditionalInfo</textarea>
                         </div>
                     }
                 }

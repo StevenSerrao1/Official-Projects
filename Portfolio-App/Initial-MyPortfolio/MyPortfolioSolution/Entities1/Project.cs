@@ -65,6 +65,7 @@ namespace MyPortfolioSolution.Entities1
                 {
                     ImageUrl = image.ImageUrl,
                     Caption = image.Caption,
+                    AdditionalInfo = image.AdditionalInfo,
                     AltText = image.AltText,
                     ProjectId = image.ProjectId
                 }).ToList() ?? new List<ImageViewModel>() // Handle null collections
@@ -87,6 +88,7 @@ namespace MyPortfolioSolution.Entities1
                     ImageId = image.ImageId, // Ensure the ImageId is included
                     ImageUrl = image.ImageUrl,
                     Caption = image.Caption,
+                    AdditionalInfo = image.AdditionalInfo,
                     AltText = image.AltText,
                     ProjectId = image.ProjectId // Make sure the ProjectId is included
                 }).ToList() ?? new List<ImageAddResponse>() // Handle null collections

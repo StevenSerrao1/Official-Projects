@@ -21,7 +21,10 @@ namespace MyPortfolioSolution.Entities1
         public string Caption { get; set; } = string.Empty;
 
         [StringLength(600)]
-        public string AltText { get; set; } = string.Empty;    
+        public string AltText { get; set; } = string.Empty;
+
+        [StringLength(600)]
+        public string AdditionalInfo { get; set; } = string.Empty;
 
         [ForeignKey("ProjectId")]
         public int ProjectId { get; set; } // Foreign key to Project
@@ -38,6 +41,7 @@ namespace MyPortfolioSolution.Entities1
                 ImageUrl = image.ImageUrl,
                 Caption = image.Caption,
                 AltText = image.AltText,
+                AdditionalInfo = image.AdditionalInfo,
                 ProjectId = image.ProjectId
             };
         }
@@ -48,6 +52,7 @@ namespace MyPortfolioSolution.Entities1
             {
                 ImageUrl = image.ImageUrl,
                 Caption = image.Caption,
+                AdditionalInfo = image.AdditionalInfo,
                 AltText = image.AltText,
                 ProjectId = image.ProjectId
             };
@@ -59,6 +64,7 @@ namespace MyPortfolioSolution.Entities1
             {
                 ImageUrl = image.ImageUrl,
                 Caption = image.Caption,
+                AdditionalInfo = image.AdditionalInfo,
                 AltText = image.AltText
             };
         }

@@ -52,6 +52,11 @@
 
                     <label for="AltText_@i">Alt Text:</label>
                     <input asp-for="Images[@i].AltText" id="AltText_@i" value="@image.AltText" />
+
+                    <!-- New field for AdditionalInfo -->
+                    <label for="AdditionalInfo_@i">Additional Info:</label>
+                    <textarea asp-for="Images[@i].AdditionalInfo" id="AdditionalInfo_@i" rows="3" placeholder="Add additional information for this image"></textarea>
+                    <span asp-validation-for="Images[@i].AdditionalInfo" class="text-danger"></span>
                 </div>
             }
         }
@@ -66,11 +71,11 @@
         document.getElementById('add-image').addEventListener('click', function () {
             let imagesSection = document.getElementById('images-section');
             let imageCount = imagesSection.getElementsByClassName('image-container').length;
-            
+
             // Create new image fields
             let newImageContainer = document.createElement('div');
             newImageContainer.classList.add('image-container');
-            
+
             newImageContainer.innerHTML = `
                 <label for="ImageUrl${imageCount}">Image URL:</label>
                 <input asp-for="Images[${imageCount}].ImageUrl" id="ImageUrl${imageCount}" required />
@@ -83,8 +88,13 @@
                 <label for="AltText${imageCount}">Alt Text:</label>
                 <input asp-for="Images[${imageCount}].AltText" id="AltText${imageCount}" />
                 <span asp-validation-for="Images[${imageCount}].AltText" class="text-danger"></span>
+
+                <!-- New field for AdditionalInfo -->
+                <label for="AdditionalInfo${imageCount}">Additional Info:</label>
+                <textarea asp-for="Images[${imageCount}].AdditionalInfo" id="AdditionalInfo${imageCount}" rows="3" placeholder="Add additional information for this image"></textarea>
+                <span asp-validation-for="Images[${imageCount}].AdditionalInfo" class="text-danger"></span>
             `;
-            
+
             // Append the new fields to the section
             imagesSection.appendChild(newImageContainer);
         });
