@@ -31,8 +31,8 @@ Projects.propTypes = {
 
   useEffect(() => {
     // Make an Axios call to the ASP.NET Core API to fetch projects
-    //axios.get('https://official-projects.onrender.com/api/projects/loadprojects') // The PRODUCTION backend endpoint
-      axios.get('http://127.0.0.1/api/projects/loadprojects') // The DEVELOPMENT backend endpoint
+    axios.get('https://official-projects.onrender.com/api/projects/loadprojects') // The PRODUCTION backend endpoint
+  // axios.get('http://127.0.0.1/api/projects/loadprojects') // The DEVELOPMENT backend endpoint
       .then(response => {
         setProjects(response.data); // Update the state with the received data
       })
