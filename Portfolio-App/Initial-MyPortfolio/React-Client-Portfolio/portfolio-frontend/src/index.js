@@ -1,30 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom"; // To enable routing between links on CLIENT side
-import { ThemeProvider, createTheme } from "@mui/material/styles"; // Import ThemeProvider and createTheme
-import CssBaseline from "@mui/material/CssBaseline"; // Optional for resetting CSS to match Material Design standards
-import App from "./App"; // Import App.js as the root component
-
-// Define a custom theme (you can customize colors, typography, etc.)
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2", // Default MUI blue
-    },
-    secondary: {
-      main: "#dc004e", // Default MUI pink
-    },
-  },
-});
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
+
+const AppWrapper = () => {
+  // Get initial theme preference from localStorage
+  const storedDarkMode = localStorage.getItem('darkMode') === 'true';
+  const [darkMode, setDarkMode] = useState(storedDarkMode);
+
+  // Update theme in localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
+
+  // Create theme based on darkMode state
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+      primary: {
+        main: darkMode ? '#90caf9' : '#1976d2',
+      },
+      background: {
+        default: darkMode ? '#121212' : '#ffffff',
+      },
+      text: {
+        primary: darkMode ? '#ffffff' : '#000000',
+      },
+    },
+  });
+
+  return (
     <ThemeProvider theme={theme}>
-      <CssBaseline /> {/* Optional: Normalizes CSS */}
+      <CssBaseline /> {/* Reset CSS to MUI default */}
       <Router>
-        <App />
+        <App setDarkMode={setDarkMode} darkMode={darkMode} />
       </Router>
     </ThemeProvider>
+  );
+};
+
+root.render(
+  <React.StrictMode>
+    <AppWrapper />
   </React.StrictMode>
 );
