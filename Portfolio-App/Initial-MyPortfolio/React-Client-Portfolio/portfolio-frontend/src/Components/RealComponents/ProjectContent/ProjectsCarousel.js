@@ -122,7 +122,7 @@ const ProjectsCarousel = ({ projects }) => {
               {/* Lazy Loaded GitHub Views */}
               <Typography variant="body2" color="textSecondary">
                 Views on GitHub:{" "}
-                <MuiLink href={project.projectURL} target="_blank" rel="noopener noreferrer">
+                <MuiLink href={`https://github.com/StevenSerrao1/${project.gitHubRepoName}`} target="_blank" rel="noopener noreferrer">
                   {project.gitHubViews}
                 </MuiLink>
               </Typography>
