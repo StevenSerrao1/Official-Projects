@@ -36,7 +36,7 @@ const AboutMe = () => {
 
           {/* Avatar Section */}
           <Avatar
-            src="C:\Users\Steven\Desktop\OFFICIAL_PROJECTS\Portfolio-App\Initial-MyPortfolio\React-Client-Portfolio\portfolio-frontend\public\assets\me.png" // Replace with your image URL
+            src="https://StevenSerrao1.github.io/Official-Projects/assets/me.png" // Replace with your image URL
             alt="Steven's Avatar"
             sx={{ width: 205, height: 205, flexShrink: 0, marginRight: -8 }}
           />
