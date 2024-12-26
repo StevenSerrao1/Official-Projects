@@ -7,9 +7,10 @@ using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.Controllers
 {
-    [Route("[controller]")]
+    [Route("[controller]")] // admin
     public class AdminController : Controller
     {
+        // Inject services below
         private readonly IProjectsService _projectsService;
         private readonly ILogger<AdminController> _logger;
 
@@ -19,7 +20,7 @@ namespace MyPortfolioSolution.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/")]
+        [HttpGet("/")] // 127.0.0.1
         public async Task<IActionResult> AdminPanel()
         {
             List<ProjectAddResponse> projects = await _projectsService.LoadAdminProjects();
@@ -27,9 +28,10 @@ namespace MyPortfolioSolution.Controllers
             return View(projects);
         }
 
-        [HttpGet("[action]")]
+        [HttpGet("[action]")] // admin/loadadminprojects
         public async Task<IActionResult> LoadAdminProjects() // admin/loadadminprojects
         {
+            // Verify successful return of projects in db; returned in JSON format
             try
             {
                 List<ProjectAddResponse> projects = await _projectsService.LoadAdminProjects();
