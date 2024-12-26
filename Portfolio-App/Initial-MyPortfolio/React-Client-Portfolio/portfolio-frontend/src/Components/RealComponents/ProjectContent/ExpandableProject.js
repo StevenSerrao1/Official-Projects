@@ -13,7 +13,17 @@ const ExpandableProject = ({ project }) => {
     return (
         <div style={{ marginBottom: "5px", border: "1px solid #ccc" }}>
             {/* Expand/Collapse Button */}
-            <Button variant="outlined" onClick={toggleExpand}>
+            <Button
+                variant="outlined"
+                onClick={toggleExpand}
+                sx={{
+                    color: "text.primary", // Ensure button text adapts to dark mode
+                    borderColor: "text.primary",
+                    "&:hover": {
+                        borderColor: "text.secondary", // Hover effect with theme colors
+                    },
+                }}
+            >
                 {isExpanded ? "Close Project" : "Expand Project"}
             </Button>
 
@@ -24,15 +34,16 @@ const ExpandableProject = ({ project }) => {
                 fullWidth
                 maxWidth="lg"
                 PaperProps={{
-                    style: {
-                        backgroundColor: "white",
+                    sx: {
+                        backgroundColor: "background.paper", // Apply background from the theme
                         padding: "30px",
                         borderRadius: "10px",
                         zIndex: 10000, // Modal stays on top
                     },
                 }}
             >
-                <DialogTitle>{project.title}</DialogTitle>
+                <DialogTitle sx={{ color: "text.primary" }}>{project.title}</DialogTitle>
+
                 {isExpanded && ( // Lazy-load dialog content
                     <DialogContent>
                         {/* Project Full Description */}
@@ -96,6 +107,7 @@ const ExpandableProject = ({ project }) => {
                         </p>
                     </DialogContent>
                 )}
+
                 <DialogActions>
                     <Button onClick={toggleExpand} color="secondary" variant="contained">
                         Close
