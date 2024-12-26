@@ -1,0 +1,20 @@
+Portfolio tech stack;
+	backend:
+		ASP.NET Core (C#)
+		(DotNetEnv, EFCore, Npgsql, Octokit)
+		PostgreSQL - Via EFCore
+		ASP.NET APIs - Being served to the frontend
+
+	frontend:
+		React (JSX)
+		(axios, swiper, prop-types, material-UI, react-router-dom)
+        Consumes ASP.NET APIs
+
+	hosting:
+		Render - Front and Backend hosting
+		Neon - Postgres DB
+		GitHub Pages - CDN
+
+	3rd party:
+		Brevo - SMTP/Email API
+		GitHub - Data View API

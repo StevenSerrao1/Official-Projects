@@ -23,7 +23,7 @@ namespace MyPortfolioSolution.Entities1
         [StringLength(600)]
         public string AltText { get; set; } = string.Empty;
 
-        [StringLength(600)]
+        [StringLength(1000)]
         public string AdditionalInfo { get; set; } = string.Empty;
 
         [ForeignKey("ProjectId")]
