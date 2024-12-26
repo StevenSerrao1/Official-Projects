@@ -8,7 +8,7 @@ import FooterComponent from "../../Components/RealComponents/Footer/FooterCompon
 function HomePage({ darkMode, setDarkMode }) {
     return (
         <div>
-            <HeaderComponent darkMode={darkMode} setDarkMode={setDarkMode} />
+            <HeaderComponent darkMode={darkMode} setDarkMode={setDarkMode} /> {/*Pass props to ensure darkMode transition*/}
             <AboutMe />
             <Projects />
             <ContactMe />
