@@ -87,7 +87,7 @@ const ProjectsCarousel = ({ projects }) => {
                 {project.title}
               </Typography>
 
-              {/* Image Preview */}
+              {/* Lazy Loaded Project Image */}
               {project.images && project.images.length > 0 ? (
                 <Box sx={{ textAlign: "center" }}>
                   <img
@@ -100,6 +100,7 @@ const ProjectsCarousel = ({ projects }) => {
                       borderRadius: 4,
                       boxShadow: "1px 4px 10px rgba(0, 0, 0, 0.2)",
                     }}
+                    loading="lazy" // Lazy-load the image
                   />
                   {project.images[0].caption && (
                     <Typography variant="caption" component="p" sx={{ marginTop: 1 }}>
@@ -117,12 +118,15 @@ const ProjectsCarousel = ({ projects }) => {
               <Typography variant="body2" color="textSecondary">
                 Created on: {project.dateCreatedFormatted}
               </Typography>
+
+              {/* Lazy Loaded GitHub Views */}
               <Typography variant="body2" color="textSecondary">
                 Views on GitHub:{" "}
                 <MuiLink href={project.projectURL} target="_blank" rel="noopener noreferrer">
                   {project.gitHubViews}
                 </MuiLink>
               </Typography>
+
               <Typography variant="body1" sx={{ textAlign: "center", marginY: 2 }}>
                 {project.shortDescription}
               </Typography>
@@ -141,7 +145,7 @@ const ProjectsCarousel = ({ projects }) => {
                 Go To Project
               </MuiLink>
 
-              {/* Expandable Project */}
+              {/* Expandable Project Component */}
               <ExpandableProject project={project} />
             </Box>
           </SwiperSlide>
