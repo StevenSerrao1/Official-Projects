@@ -4,56 +4,67 @@
     ViewBag.Title = "Create Project";
 }
 
+<!-- Form to create a new project -->
 <form method="post">
+    <!-- Project Title Input -->
     <div>
         <label for="Title">Project Title:</label>
         <input asp-for="Title" id="Title" required />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
 
+    <!-- Project Description Input -->
     <div>
         <label for="Description">Description:</label>
         <textarea asp-for="Description" id="Description" required></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
 
+    <!-- Project URL Input -->
     <div>
         <label for="ProjectURL">Project URL:</label>
         <textarea asp-for="ProjectURL" id="ProjectURL" required></textarea>
         <span asp-validation-for="ProjectURL" class="text-danger"></span>
     </div>
 
+    <!-- GitHub Repository Name Input -->
     <div>
         <label for="GitHubRepoName">GitHub Repo:</label>
         <textarea asp-for="GitHubRepoName" id="GitHubRepoName" required></textarea>
         <span asp-validation-for="GitHubRepoName" class="text-danger"></span>
     </div>
 
+    <!-- Image Upload Section -->
     <div id="images-section">
         <h3>Images</h3>
 
+        <!-- If no images are available in the model, display a message -->
         @if (Model.Images == null)
         {
             <p>No images available</p>
         }
         else
         {
+            <!-- Loop through the images (max 2 for now) -->
             @for (int i = 0; i < 2; i++)
             {
-                // Ensure we don't exceed the bounds if the model has fewer than 5 images
+                // Safely get the image, using a default if none exists
                 var image = Model.Images.ElementAtOrDefault(i) ?? new ImageAddRequest();
 
                 <div class="image-container">
+                    <!-- Image URL Input -->
                     <label for="ImageUrl_@i">Image URL:</label>
                     <input asp-for="Images[@i].ImageUrl" id="ImageUrl_@i" value="@image.ImageUrl" />
 
+                    <!-- Image Caption Input -->
                     <label for="Caption_@i">Caption:</label>
                     <input asp-for="Images[@i].Caption" id="Caption_@i" value="@image.Caption" />
 
+                    <!-- Image Alt Text Input -->
                     <label for="AltText_@i">Alt Text:</label>
                     <input asp-for="Images[@i].AltText" id="AltText_@i" value="@image.AltText" />
 
-                    <!-- New field for AdditionalInfo -->
+                    <!-- Additional Info Input for Images -->
                     <label for="AdditionalInfo_@i">Additional Info:</label>
                     <textarea asp-for="Images[@i].AdditionalInfo" id="AdditionalInfo_@i" rows="3" placeholder="Add additional information for this image"></textarea>
                     <span asp-validation-for="Images[@i].AdditionalInfo" class="text-danger"></span>
@@ -62,40 +73,45 @@
         }
     </div>
 
+    <!-- Submit Button to Create Project -->
     <button type="submit">Create Project</button>
 </form>
 
 @section Scripts {
+    <!-- Script for dynamically adding new image fields -->
     <script>
-        // Script to add new image fields dynamically
+        // Event listener for the "Add Image" button (not present in the code but assumed for dynamic fields)
         document.getElementById('add-image').addEventListener('click', function () {
             let imagesSection = document.getElementById('images-section');
             let imageCount = imagesSection.getElementsByClassName('image-container').length;
 
-            // Create new image fields
+            // Create new image input fields dynamically
             let newImageContainer = document.createElement('div');
             newImageContainer.classList.add('image-container');
 
             newImageContainer.innerHTML = `
+                <!-- New Image URL field -->
                 <label for="ImageUrl${imageCount}">Image URL:</label>
                 <input asp-for="Images[${imageCount}].ImageUrl" id="ImageUrl${imageCount}" required />
                 <span asp-validation-for="Images[${imageCount}].ImageUrl" class="text-danger"></span>
 
+                <!-- New Image Caption field -->
                 <label for="Caption${imageCount}">Caption:</label>
                 <input asp-for="Images[${imageCount}].Caption" id="Caption${imageCount}" />
                 <span asp-validation-for="Images[${imageCount}].Caption" class="text-danger"></span>
 
+                <!-- New Alt Text field -->
                 <label for="AltText${imageCount}">Alt Text:</label>
                 <input asp-for="Images[${imageCount}].AltText" id="AltText${imageCount}" />
                 <span asp-validation-for="Images[${imageCount}].AltText" class="text-danger"></span>
 
-                <!-- New field for AdditionalInfo -->
+                <!-- New Additional Info field -->
                 <label for="AdditionalInfo${imageCount}">Additional Info:</label>
                 <textarea asp-for="Images[${imageCount}].AdditionalInfo" id="AdditionalInfo${imageCount}" rows="3" placeholder="Add additional information for this image"></textarea>
                 <span asp-validation-for="Images[${imageCount}].AdditionalInfo" class="text-danger"></span>
             `;
 
-            // Append the new fields to the section
+            // Append the newly created fields to the images section
             imagesSection.appendChild(newImageContainer);
         });
     </script>

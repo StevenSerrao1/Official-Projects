@@ -7,14 +7,17 @@
 <link rel="stylesheet" href="~/Stylesheets/admin-panel.css" />
 
 <div class="admin-panel">
+    <!-- Admin Panel Header -->
     <h1 class="admin-panel-title">Admin Panel</h1>
     <p class="admin-panel-description">
         Here, you can Create, Read, Update, and Delete projects for the portfolio app.
     </p>
 
+    <!-- Projects Table -->
     <table class="admin-table">
         <thead>
             <tr class="admin-table-header">
+                <!-- Table headers for project details -->
                 <th>Project ID</th>
                 <th>Project Name</th>
                 <th>Project Description</th>
@@ -26,32 +29,44 @@
             </tr>
         </thead>
         <tbody>
+            <!-- Loop through each project and display its details -->
             @foreach (ProjectAddResponse project in Model)
             {
                 <tr class="admin-table-row">
+                    <!-- Project ID -->
                     <td class="admin-table-cell">@project.ProjectId</td>
+                    <!-- Project Title -->
                     <td class="admin-table-cell">@project.Title</td>
+                    <!-- Project Description -->
                     <td class="admin-table-cell">@project.Description</td>
+                    <!-- Formatted Date Created -->
                     <td class="admin-table-cell">@project.DateCreatedFormatted</td>
+                    <!-- GitHub Repository Name -->
                     <td class="admin-table-cell">@project.GitHubRepoName</td>
+                    <!-- GitHub Views -->
                     <td class="admin-table-cell">@project.GitHubViews</td>
                     <td class="admin-table-cell">
+                        <!-- Display images associated with the project -->
                         @if (project.Images != null && project.Images.Any())
                         {
-                            @foreach(ImageAddResponse img in project.Images)
+                            @foreach (ImageAddResponse img in project.Images)
                             {
+                                <!-- Display image for each project -->
                                 <img src="@img?.ImageUrl"
                                      alt="Project Image"
                                      class="admin-table-image" />
-                            }  
+                            }
                         }
                         else
                         {
+                            <!-- No images available message -->
                             <span class="no-image">No image available</span>
                         }
                     </td>
                     <td class="admin-table-cell">
+                        <!-- Action buttons for Update and Delete -->
                         <ul class="action-list">
+                            <!-- Update Project button -->
                             <li class="action-item">
                                 <a asp-controller="Admin"
                                    asp-action="UpdateProject"
@@ -60,6 +75,7 @@
                                     Update Project
                                 </a>
                             </li>
+                            <!-- Delete Project button -->
                             <li class="action-item">
                                 <a asp-controller="Admin"
                                    asp-action="DeleteProjectGet"
@@ -75,6 +91,7 @@
         </tbody>
     </table>
 
+    <!-- Footer with the current year -->
     <footer class="admin-footer">
         Admin Panel © @DateTime.Now.Year. All Rights Reserved.
     </footer>

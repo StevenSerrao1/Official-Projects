@@ -5,27 +5,52 @@ using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.ServiceContracts1
 {
+    /// <summary>
+    /// Interface defining the contract for project-related services.
+    /// </summary>
     public interface IProjectsService
     {
         /// <summary>
-        /// Adds a project to the database, can ONLY be called through Admin Portal
+        /// Adds a new project to the database.
+        /// This method should only be called through the Admin Portal.
         /// </summary>
-        /// <param name="par">Object of ProjectAddRequest type</param>
-        /// <param name="iar">List of ImageAddRequest type</param>
-        /// <returns>An Object of ProjectAddResponse type</returns>
+        /// <param name="par">An object of type <see cref="ProjectAddRequest"/> containing project details.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains an object of type <see cref="ProjectAddResponse"/>.</returns>
         public Task<ProjectAddResponse> AddProject(ProjectAddRequest par);
 
         /// <summary>
-        /// Loads a list of all projects currently in Projects DB (Available through CLIENT and ADMIN API)
+        /// Loads all projects currently stored in the database.
+        /// This method is accessible through both Client and Admin APIs.
         /// </summary>
-        /// <returns>List<ProjectViewModel> reflecting all projects added</returns>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProjectViewModel"/> reflecting all projects.</returns>
         public Task<List<ProjectViewModel>> LoadProjects();
+
+        /// <summary>
+        /// Loads all projects currently stored in the database with additional admin-specific details.
+        /// This method is accessible only through the Admin API.
+        /// </summary>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProjectAddResponse"/> with admin-specific data.</returns>
         public Task<List<ProjectAddResponse>> LoadAdminProjects();
 
+        /// <summary>
+        /// Retrieves a project by its unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the project.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the <see cref="Project"/> with the specified ID.</returns>
         public Task<Project> GetProjectById(int? id);
 
+        /// <summary>
+        /// Deletes a project from the database by its unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the project to be deleted.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains a boolean indicating whether the deletion was successful.</returns>
         public Task<bool> DeleteProject(int? id);
 
+        /// <summary>
+        /// Updates the details of an existing project.
+        /// </summary>
+        /// <param name="project">An object of type <see cref="ProjectAddResponse"/> containing the updated project details.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the updated <see cref="ProjectAddResponse"/>.</returns>
         public Task<ProjectAddResponse> UpdateProject(ProjectAddResponse? project);
     }
 }
