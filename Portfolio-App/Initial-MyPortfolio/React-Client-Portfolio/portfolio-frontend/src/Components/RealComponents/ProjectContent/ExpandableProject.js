@@ -109,7 +109,7 @@ const ExpandableProject = ({ project }) => {
                 )}
 
                 <DialogActions>
-                    <Button onClick={toggleExpand} color="secondary" variant="contained">
+                    <Button onClick={toggleExpand} variant="contained">
                         Close
                     </Button>
                 </DialogActions>
