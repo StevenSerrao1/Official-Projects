@@ -5,7 +5,7 @@ import ToggleThemeButton from "./ToggleThemeButton";
 
 const HeaderComponent = ({ darkMode, setDarkMode }) => {
   return (
-    <AppBar position="static" color="primary" sx={{ marginBottom: 2 }}>
+    <AppBar position="static" color="primary">
       <Toolbar sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Left Section: App Title or Branding */}
         <Typography variant="h6" sx={{ flex: "0 1 auto" }}>

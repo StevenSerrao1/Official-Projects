@@ -1,26 +1,30 @@
 import React from "react";
 import { Box, Typography, IconButton } from "@mui/material"; // Import MUI components
 import { GitHub, LinkedIn, Instagram, Mail } from "@mui/icons-material"; // Import icons
+import { useTheme } from "@mui/material/styles"; // Make sure this is imported correctly
 
 function FooterComponent() {
+  const theme = useTheme(); // Correctly use the useTheme hook to get the current theme
+
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#333",
-        color: "white",
+        backgroundColor: theme.palette.mode === 'dark' ? '#3C3C3C' : '#3C3C3C', // Use the theme object to apply styles conditionally
+        color: theme.palette.mode === 'dark' ? 'white' : 'white', // Adjust text color based on dark mode
         padding: "20px",
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        marginTop: "50px",
+        marginTop: "5px",
+        borderTop: theme.palette.mode === 'dark' ? '5px solid #F76F00' : '6px solid cornflowerblue', // Conditional border color based on theme mode
         gap: 2,
       }}
     >
       {/* Social Media Links */}
-      <Box sx={{ display: "flex", gap: 2 }}>
+      <Box sx={{ display: "flex", gap: 2, marginBottom: 2 }}>
         <IconButton
           component="a"
           href="https://www.linkedin.com/in/steven-serrao-0729841b1/"

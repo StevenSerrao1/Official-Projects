@@ -51,7 +51,8 @@ const ContactMe = () => {
   };
 
   return (
-    <Container id="contact" maxWidth="sm" sx={{ marginTop: 5 }}>
+    <div>
+      <Container id="contact" maxWidth="sm" sx={{ marginTop: 5, marginBottom: 5 }}>
       <Paper elevation={3} sx={{ padding: 3 }}>
         <Typography variant="h4" component="h2" gutterBottom>
           Contact Me
@@ -99,6 +100,7 @@ const ContactMe = () => {
         </form>
       </Paper>
     </Container>
+    </div> 
   );
 };
 

@@ -25,7 +25,7 @@ const AppWrapper = () => {
         main: darkMode ? '#90caf9' : '#1976d2',
       },
       background: {
-        default: darkMode ? '#121212' : '#ffffff',
+        default: darkMode ? '#262626' : '#ffffff',
       },
       text: {
         primary: darkMode ? '#ffffff' : '#000000',

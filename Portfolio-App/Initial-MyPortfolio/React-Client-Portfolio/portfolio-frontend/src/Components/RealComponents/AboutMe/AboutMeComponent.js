@@ -1,11 +1,14 @@
 import React from "react";
-import { Typography, Box, Avatar, Paper, Container } from "@mui/material";
+import { Typography, Box, Avatar, Paper, Container, useTheme } from "@mui/material";
 
 const AboutMe = () => {
+
+  const theme = useTheme();
+
   return (
     <div class="MuiPaper-root">
-     <Paper elevation={3}>
-      <Box id="about" sx={{ padding: 4, backgroundColor: "background.paper" }}>
+     <Paper elevation={4}>
+      <Box id="about" sx={{ padding: 4, backgroundColor: theme.palette.background.default }}>
  
       <Container>
         {/* Heading */}
