@@ -18,7 +18,7 @@ function HomePage({ darkMode, setDarkMode }) {
         <div>
             <HeaderComponent darkMode={darkMode} setDarkMode={setDarkMode} onSectionChange={handleSectionChange} />
             {/* Pass handleSectionChange to NavPanel */}
-            <NavPanel onSectionChange={handleSectionChange} />
+            <NavPanel onSectionChange={handleSectionChange} onActiveSection={activeSection} />
             <div className="content">
                 {activeSection === 'about' && <AboutMe />}
                 {activeSection === 'projects' && <Projects />}

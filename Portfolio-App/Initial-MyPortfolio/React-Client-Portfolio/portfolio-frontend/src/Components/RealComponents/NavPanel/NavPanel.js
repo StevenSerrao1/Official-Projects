@@ -10,7 +10,27 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
   borderTop: theme.palette.mode === 'dark' ? '5px solid #F76F00' : '5px solid cornflowerblue',
 }));
 
-const NavPanel = ({ onSectionChange }) => {
+const NavPanel = ({ onSectionChange, onActiveSection }) => {
+
+  const theme = useTheme(); // Get the theme object using the useTheme hook
+
+  // Function to generate button styles dynamically based on active section and theme mode
+  const getButtonStyles = (section) => {
+    const isActive = onActiveSection === section;
+    return {
+      backgroundColor: isActive
+        ? (theme.palette.mode === 'dark' ? '#555' : '#3C3C3C') // Dark mode vs light mode
+        : 'transparent',
+      fontWeight: isActive ? 'bold' : 'normal',
+      borderRadius: '8px',
+      border: isActive
+        ? (theme.palette.mode === 'dark' ? '3px solid orange' : '3px solid cornflowerblue') // Border color change based on active section and theme
+        : 'none',
+      padding: '10px 20px',
+      transition: 'all 0.3s ease',
+    };
+  };
+
   return (
     <StyledAppBar position="static">
       <Toolbar>
@@ -18,26 +38,67 @@ const NavPanel = ({ onSectionChange }) => {
         <Box sx={{ display: 'flex', width: '100%' }}>
           {/* First section */}
           <Box sx={{ flex: '1 1 25%', display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={() => onSectionChange('about')}>
-              About
+            <Button
+            color="inherit"
+            onClick={() => onSectionChange('about')}
+            style={getButtonStyles('about')} // Apply the dynamic styles
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#555';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#3C3C3C';
+            }}
+            >
+             About
             </Button>
           </Box>
+
           {/* Second section */}
           <Box sx={{ flex: '1 1 25%', display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={() => onSectionChange('projects')}>
-              Projects
+            <Button
+            color="inherit"
+            onClick={() => onSectionChange('projects')}
+            style={getButtonStyles('projects')} // Apply the dynamic styles
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#555';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#3C3C3C';
+            }}
+            >
+             My Projects
             </Button>
           </Box>
           {/* Third section */}
           <Box sx={{ flex: '1 1 25%', display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={() => onSectionChange('contact')}>
-              Contact
+            <Button
+            color="inherit"
+            onClick={() => onSectionChange('contact')}
+            style={getButtonStyles('contact')} // Apply the dynamic styles
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#555';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#3C3C3C';
+            }}
+            >
+             Contact Me
             </Button>
           </Box>
           {/* Fourth section */}
           <Box sx={{ flex: '1 1 25%', display: 'flex', justifyContent: 'center' }}>
-            <Button color="inherit" onClick={() => onSectionChange('freelance')}>
-              Freelance
+            <Button
+            color="inherit"
+            onClick={() => onSectionChange('freelance')}
+            style={getButtonStyles('freelance')} // Apply the dynamic styles
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#555';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#3C3C3C';
+            }}
+            >
+             Freelancing
             </Button>
           </Box>
         </Box>
