@@ -26,7 +26,7 @@ const FreelanceSection = () => {
             <Typography variant="body2">Offer expert advice on software solutions.</Typography>
           </Box>
         </Box>
-        <Button variant="contained" color="primary" href="mailto:your-email@example.com" fullWidth>
+        <Button variant="contained" color="primary" href="mailto:stevenserrao111@gmail.com" fullWidth>
           Contact Me for Projects
         </Button>
       </Container>

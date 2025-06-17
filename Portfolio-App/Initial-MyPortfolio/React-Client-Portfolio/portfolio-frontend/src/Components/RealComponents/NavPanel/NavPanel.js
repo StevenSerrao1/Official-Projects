@@ -24,7 +24,7 @@ const NavPanel = ({ onSectionChange, onActiveSection }) => {
       fontWeight: isActive ? 'bold' : 'normal',
       borderRadius: '8px',
       border: isActive
-        ? (theme.palette.mode === 'dark' ? '3px solid orange' : '3px solid cornflowerblue') // Border color change based on active section and theme
+        ? (theme.palette.mode === 'dark' ? '3px solid #F76F00' : '3px solid cornflowerblue') // Border color change based on active section and theme
         : 'none',
       padding: '10px 20px',
       transition: 'all 0.3s ease',
@@ -43,10 +43,11 @@ const NavPanel = ({ onSectionChange, onActiveSection }) => {
             onClick={() => onSectionChange('about')}
             style={getButtonStyles('about')} // Apply the dynamic styles
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#555';
+
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? '#3C3C3C' : '#555';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#3C3C3C';
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? 'rgb(70, 80, 80)' : '#3C3C3C';
             }}
             >
              About
@@ -60,10 +61,11 @@ const NavPanel = ({ onSectionChange, onActiveSection }) => {
             onClick={() => onSectionChange('projects')}
             style={getButtonStyles('projects')} // Apply the dynamic styles
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#555';
+
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? '#3C3C3C' : '#555';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#3C3C3C';
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? 'rgb(70, 80, 80)' : '#3C3C3C';
             }}
             >
              My Projects
@@ -76,10 +78,11 @@ const NavPanel = ({ onSectionChange, onActiveSection }) => {
             onClick={() => onSectionChange('contact')}
             style={getButtonStyles('contact')} // Apply the dynamic styles
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#555';
+
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? '#3C3C3C' : '#555';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#3C3C3C';
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? 'rgb(70, 80, 80)' : '#3C3C3C';
             }}
             >
              Contact Me
@@ -92,10 +95,11 @@ const NavPanel = ({ onSectionChange, onActiveSection }) => {
             onClick={() => onSectionChange('freelance')}
             style={getButtonStyles('freelance')} // Apply the dynamic styles
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#555';
+
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? '#3C3C3C' : '#555';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#3C3C3C';
+              e.target.style.backgroundColor = theme.palette.mode === 'dark' ? 'rgb(70, 80, 80)' : '#3C3C3C';
             }}
             >
              Freelancing

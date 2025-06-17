@@ -14,15 +14,13 @@ namespace MyPortfolioSolution.Controllers
         private readonly ApplicationDbContext _context;
         private readonly ILogger<ProjectsController> _logger;
         private readonly IProjectsService _projectsService;
-        private readonly EmailService _emailService;
 
         // Constructor for dependency injection
-        public ProjectsController(ApplicationDbContext context, ILogger<ProjectsController> logger, IProjectsService projectsService, EmailService emailService)
+        public ProjectsController(ApplicationDbContext context, ILogger<ProjectsController> logger, IProjectsService projectsService)
         {
             _context = context;           // Injecting the ApplicationDbContext for database access
             _logger = logger;             // Injecting the Logger for error logging
             _projectsService = projectsService;  // Injecting the ProjectsService for business logic
-            _emailService = emailService;        // Injecting the EmailService to send emails
         }
 
         // Action to load all projects
@@ -40,27 +38,6 @@ namespace MyPortfolioSolution.Controllers
                 // Log any errors that occur
                 _logger.LogError(ex, "An error occurred while loading projects.");
                 return StatusCode(500, "Internal server error");  // Return 500 if an error occurs
-            }
-        }
-
-        // Action to handle contact form submissions
-        [HttpPost("[action]")]
-        public async Task<IActionResult> ContactForm([FromBody] ContactViewModel model) // api/contact/contactform
-        {
-            try
-            {
-                // Send email using the EmailService
-                if (await _emailService.SendEmailAsync(model.Name, model.Email, model.Message))
-                {
-                    return Ok(new { message = "Email sent successfully!" });  // Return success message
-                }
-                return StatusCode(500, new { message = "Email failed to send." });  // Return error if email sending fails
-            }
-            catch (Exception ex)
-            {
-                // Log any errors and display the error message
-                Console.WriteLine($"Error: {ex.Message}");
-                return StatusCode(500, new { message = "An unexpected error occurred.", error = ex.Message });
             }
         }
 

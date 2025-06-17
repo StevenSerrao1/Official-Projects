@@ -46,30 +46,24 @@
         else
         {
             <!-- Loop through the images (max 2 for now) -->
-            @for (int i = 0; i < 2; i++)
+            @for (int i = 0; i < Model.Images.Count; i++)
             {
-                // Safely get the image, using a default if none exists
-                var image = Model.Images.ElementAtOrDefault(i) ?? new ImageAddRequest();
-
                 <div class="image-container">
-                    <!-- Image URL Input -->
                     <label for="ImageUrl_@i">Image URL:</label>
-                    <input asp-for="Images[@i].ImageUrl" id="ImageUrl_@i" value="@image.ImageUrl" />
+                    <input asp-for="Images[@i].ImageUrl" id="ImageUrl_@i" />
 
-                    <!-- Image Caption Input -->
                     <label for="Caption_@i">Caption:</label>
-                    <input asp-for="Images[@i].Caption" id="Caption_@i" value="@image.Caption" />
+                    <input asp-for="Images[@i].Caption" id="Caption_@i" />
 
-                    <!-- Image Alt Text Input -->
                     <label for="AltText_@i">Alt Text:</label>
-                    <input asp-for="Images[@i].AltText" id="AltText_@i" value="@image.AltText" />
+                    <input asp-for="Images[@i].AltText" id="AltText_@i" />
 
-                    <!-- Additional Info Input for Images -->
                     <label for="AdditionalInfo_@i">Additional Info:</label>
-                    <textarea asp-for="Images[@i].AdditionalInfo" id="AdditionalInfo_@i" rows="3" placeholder="Add additional information for this image"></textarea>
+                    <textarea asp-for="Images[@i].AdditionalInfo" id="AdditionalInfo_@i" rows="3"></textarea>
                     <span asp-validation-for="Images[@i].AdditionalInfo" class="text-danger"></span>
                 </div>
             }
+
         }
     </div>
 

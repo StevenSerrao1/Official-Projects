@@ -28,7 +28,7 @@ const ContactMe = () => {
 
     try {
       const response = await fetch(
-        "https://official-projects.onrender.com/api/projects/contactform",
+        "https://formspree.io/f/mrbpbqgn",
         {
           method: "POST",
           headers: {

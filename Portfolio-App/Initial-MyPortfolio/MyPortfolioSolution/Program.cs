@@ -19,10 +19,6 @@ builder.Services.AddControllersWithViews();
 builder.Configuration.AddEnvironmentVariables();
 
 // Configure Email service HTTP client with API key from environment variables
-builder.Services.AddHttpClient<EmailService>(client =>
-{
-    client.DefaultRequestHeaders.Add("api-key", Environment.GetEnvironmentVariable("BrevoApi"));
-});
 
 // DB SETUP SERVICES
 // Retrieves the connection string from environment variables and sets up PostgreSQL.
@@ -40,12 +36,12 @@ builder.Services.AddScoped<IGitHubService, GitHubService>();
 builder.Services.AddScoped<IImageService, ImageService>();
 
 // Dynamically listen on the port provided by Render
-builder.WebHost.ConfigureKestrel(options =>
-{
-    // Listen on 0.0.0.0 (any IP address) and port defined by Render
-    var port = Environment.GetEnvironmentVariable("PORT") ?? "80"; // Default to 80 if PORT is not set
-    options.Listen(IPAddress.Any, int.Parse(port)); // Listen on any IP address
-});
+// Grab the PORT env var (Render sets this), default to 5000 if missing
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+
+// Tell Kestrel to listen on any IP and that port
+builder.WebHost
+       .UseUrls($"http://*:{port}");
 
 // Add routing capability
 // This allows the app to route incoming requests to the appropriate controller.
