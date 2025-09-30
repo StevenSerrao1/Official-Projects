@@ -1,0 +1,33 @@
+﻿@page "/"
+@using Blazor_backend.Shared
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="app.css" rel="stylesheet" />
+    <link href="Blazor_backend.styles.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <HeadOutlet />
+</head>
+<body>
+    <app>
+        <Router AppAssembly="@typeof(Blazor_backend.Components.App).Assembly">
+            <Found Context="routeData">
+                <RouteView RouteData="@routeData" DefaultLayout="typeof(Blazor_backend.Shared.MainLayout)" />
+            </Found>
+            <NotFound>
+                <LayoutView Layout="typeof(Blazor_backend.Shared.MainLayout)">
+                    <p>Sorry, the page you're looking for doesn't exist.</p>
+                </LayoutView>
+            </NotFound>
+        </Router>
+
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

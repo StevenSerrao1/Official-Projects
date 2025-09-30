@@ -1,0 +1,39 @@
+﻿/* Dark background containers */
+.dark-bg {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+
+.dark-bg-section {
+    background-color: #1e1e1e;
+}
+
+.dark-bg-heading {
+    background-color: #222222;
+    color: #ffc107;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.yellow-underline {
+    text-decoration: underline;
+    text-decoration-color: #ffc107 !important;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.yellow-underline:hover {
+    color: #ffc107 !important;
+    text-decoration-color: #121212 !important;
+}
+
+.lato-p {
+    font-family: 'Lato', sans-serif;
+}
+
+.avatar-img {
+    width: 225px !important;
+    height: 225px !important;
+    object-fit: cover !important;
+    /* Border already applied via bootstrap class */
+}

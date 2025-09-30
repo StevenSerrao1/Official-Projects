@@ -1,0 +1,104 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-panel {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.admin-panel-title {
+    text-align: center;
+    margin-top: 20px;
+    color: #222;
+}
+
+.admin-panel-description {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.admin-table {
+    width: 100%;
+    margin: 0 auto 30px;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table-header {
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1rem;
+}
+
+    .admin-table-cell, .admin-table-header th {
+        padding: 10px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+.admin-table-row:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.admin-table-row:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.admin-table-image {
+    border-radius: 8px;
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+}
+
+.no-image {
+    color: #999;
+    font-style: italic;
+}
+
+.action-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.action-item {
+    display: inline-block;
+    margin-right: 10px;
+    color: #007BFF;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+    .action-item:hover {
+        color: #0056b3;
+    }
+
+.admin-footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #007BFF;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.super-margin {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.small-margin {
+    margin-top: 15px;
+    margin-bottom: 25px;
+}

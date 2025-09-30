@@ -1,0 +1,22 @@
+﻿.footer-container {
+    background-color: #222222;
+}
+
+.footer-link {
+    color: #ffc107;
+    text-decoration: underline;
+    text-decoration-color: #ffc107;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+    font-family: 'LemonMilkRegularFont', sans-serif;
+    font-weight: 500;
+}
+
+.footer-link:hover,
+.footer-link:focus {
+    color: #222222;
+    background-color: #ffc107;
+    text-decoration-color: #222222;
+    border-radius: 4px;
+    outline: none;
+    text-decoration: none;
+}

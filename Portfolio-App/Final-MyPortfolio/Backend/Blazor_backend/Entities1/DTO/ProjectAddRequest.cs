@@ -36,7 +36,7 @@ namespace MyPortfolioSolution.DTO
             // Iterate through each ImageAddRequest in the request's Images collection.
             foreach (ImageAddRequest img in par.Images)
             {
-                // Convert ImageAddRequest to an Images entity and add it to the list.`
+                // Convert ImageAddRequest to an Images entity and add it to the list.
                 FormattedImages.Add(img.ToImages());
             }
 

@@ -1,0 +1,8 @@
+﻿.hover-lift {
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075); /* shadow-sm */
+}
+
+.hover-lift:hover {
+    box-shadow: -0.5rem 0.5rem 0.4rem rgba(10, 10, 10, 0.35); /* shadow-lg */
+}

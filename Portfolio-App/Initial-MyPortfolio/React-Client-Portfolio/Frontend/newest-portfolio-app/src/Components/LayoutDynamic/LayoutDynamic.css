@@ -1,0 +1,33 @@
+﻿.nav-btn {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    padding-bottom: 2px;
+    position: relative;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+    color: #ffcc00;
+    outline: none;
+}
+
+.nav-btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 0%;
+    background-color: #ffcc00;
+    transition: width 0.3s ease;
+}
+
+.nav-btn:hover::after {
+    width: 100%;
+}
+
+.custom-layout-nav {
+    border-bottom: 3px solid #ffcc00 !important;
+}

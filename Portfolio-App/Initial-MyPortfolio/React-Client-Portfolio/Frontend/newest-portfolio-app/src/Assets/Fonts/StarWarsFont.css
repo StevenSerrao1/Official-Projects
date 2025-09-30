@@ -1,0 +1,9 @@
+﻿@font-face {
+    font-family: "MyCustomFont";
+    src: url("Starjedi.ttf") format("truetype");
+}
+
+.starwars-font {
+    font-family: "MyCustomFont", sans-serif;
+    font-size: 26px;
+}

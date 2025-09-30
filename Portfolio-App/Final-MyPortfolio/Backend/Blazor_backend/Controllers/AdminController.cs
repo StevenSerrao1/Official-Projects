@@ -49,50 +49,63 @@ namespace MyPortfolioSolution.Controllers
 
         #region Create Controllers
 
-        //[HttpGet("[action]")] // admin/createproject
-        //public IActionResult CreateProject()
-        //{
-        //    return View(new ProjectAddRequest { Images = new List<ImageAddRequest>(new ImageAddRequest[2])});
-        //}
-
-        // 2025/09/29 (08:59) I decided to make a huge change. I am moving the admin panel to react, since this was a crux.
-        // I will be modifying the CRUD endpoints to no longer return views, instead to return and accept JSON.
+        [HttpGet("[action]")] // admin/createproject
+        public IActionResult CreateProject()
+        {
+            return View(new ProjectAddRequest { Images = new List<ImageAddRequest>(new ImageAddRequest[2])});
+        }
 
         [HttpPost("[action]")] // admin/createproject/[post]
-        public async Task<IActionResult> CreateProject([FromBody] ProjectAddRequest par)
+        public async Task<IActionResult> CreateProject(ProjectAddRequest par)
         {
             // Check model state
-            if (!ModelState.IsValid)
+            if(!ModelState.IsValid)
             {
-                // Return validation errors as JSON
-                return BadRequest(ModelState);
+                return View(par);
             }
 
+            // Adds project to database
             ProjectAddResponse projectAddResponse = await _projectsService.AddProject(par);
 
-            // Return the created project as JSON
-            return Ok(projectAddResponse);
+            // Redirects to AdminPanel upon successful addition of Project
+            return RedirectToAction("AdminPanel");
         }
 
         #endregion
 
-        //[HttpGet("[action]/{id?}")] // admin/deleteprojectget/{id}
-        //public async Task<IActionResult> DeleteProjectGet(int? id)
-        //{
-        //    // Fetch project (by Id) to be deleted
-        //    Project projectRetrieved = await _projectsService.GetProjectById(id);
-
-        //    // Pass model data to View in order to load project details
-        //    return View("Views/Admin/DeleteProject.cshtml", projectRetrieved);
-        // }
-
-         [HttpDelete("deleteproject/{id:int}")]
-        public async Task<IActionResult> DeleteProject(int id)
+        [HttpGet("[action]/{id?}")] // admin/deleteprojectget/{id}
+        public async Task<IActionResult> DeleteProjectGet(int? id)
         {
-            if (id <= 0) return BadRequest(new { message = "Invalid id" });
-            bool ok = await _projectsService.DeleteProject(id);
-            if (!ok) return NotFound(new { message = "Not found" });
-            return Ok(new { message = "Deleted" });
+            // Fetch project (by Id) to be deleted
+            Project projectRetrieved = await _projectsService.GetProjectById(id);
+
+            // Pass model data to View in order to load project details
+            return View("Views/Admin/DeleteProject.cshtml", projectRetrieved);
+        }
+
+        [HttpPost("[action]/{id?}")] // admin/deleteprojectpost/{id}
+        public async Task<IActionResult> DeleteProjectPost([FromForm] int? id)
+        {
+            // Validate Id
+            if (id <= 0)
+            {
+                TempData["ErrorMessage"] = "Invalid project ID.";
+                return RedirectToAction("AdminPanel");
+            }
+
+            // Delete project from DB
+            bool deletion = await _projectsService.DeleteProject(id);
+
+            // Verify successful deletion
+            if (!deletion)
+            {
+                TempData["ErrorMessage"] = "Failed to delete the project.";
+                return RedirectToAction("AdminPanel");
+            }
+
+            // Share success message and redirect
+            TempData["SuccessMessage"] = "Project deleted successfully.";
+            return RedirectToAction("AdminPanel");
         }
 
         [HttpGet("[action]/{id}")] // admin/updateproject/{id}
