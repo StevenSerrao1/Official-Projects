@@ -64,8 +64,8 @@ const AdminPanel: React.FC = () => {
 
                     {/* CRUD Buttons per project */}
                     <div className="d-flex gap-2 mt-2">
-                        <a href={`/admin/updateproject/${p.projectId}`} className="btn btn-sm btn-primary">Update</a>
-                        <a href={`/admin/deleteproject/${p.projectId}`} className="btn btn-sm btn-danger">Delete</a>
+                        <Link to={`/admin/updateproject/${p.projectId}`} className="btn btn-sm btn-primary">Update</Link>
+                        <Link to={`/admin/deleteproject/${p.projectId}`} className="btn btn-sm btn-danger">Delete</Link>
                     </div>
                 </div>
             ))}

@@ -21,7 +21,7 @@ function App() {
             <Route path="/admin/deleteproject/:id" element={<DeleteProject />} />
             <Route path="/admin/loadadminprojects" element={<FetchProjectsJSON />} />
             <Route path="/admin/updateproject/:id" element={<UpdateProject />} />
-            <Route path="/*" element={<LayoutDynamic />} />
+            <Route path="/" element={<LayoutDynamic />} />
           </Routes>
         </div>
         <Footer />
