@@ -15,13 +15,13 @@ function App() {
       <div className="app-wrapper"> {/* flex wrapper */}
         <HeaderComponent />
         <div className="app-content"> {/* grows to fill space */}
-          <Routes>
-            <Route path="/*" element={<LayoutDynamic />} />
+          <Routes> 
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/admin/createproject" element={<CreateProject />} />
             <Route path="/admin/deleteproject/:id" element={<DeleteProject />} />
             <Route path="/admin/loadadminprojects" element={<FetchProjectsJSON />} />
             <Route path="/admin/updateproject/:id" element={<UpdateProject />} />
+            <Route path="/*" element={<LayoutDynamic />} />
           </Routes>
         </div>
         <Footer />
