@@ -14,7 +14,7 @@ const AboutSection: React.FC = () => {
                 </h2>
             </div>
 
-            <div className="border border-warning border-3 p-4 text-light rounded-bottom rounded-end">
+            <div className="border border-warning border-3 p-4 text-light rounded-bottom">
 
                 {/* Content */}
                 <div className="row align-items-center gx-4">

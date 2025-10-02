@@ -11,7 +11,7 @@ const HeaderComponent: React.FC = () => {
             <nav className="d-flex flex-wrap justify-content-between align-items-center">
                 {/* Left: Name */}
                 <div className="lm-bold-font fs-5 text-warning">
-                    STEvEN SERRAO
+                    <a href="/" className="lm-bold-font fs-5 text-warning">STEvEN SERRAO</a>
                 </div>
 
                 {/* Center: Social Links */}
@@ -53,11 +53,11 @@ const HeaderComponent: React.FC = () => {
                 {/* Right: CV Button */}
                 <div>
                     <a
-                        href="https://StevenSerrao1.github.io/Official-Projects/assets/resume.pdf"
+                        href="https://StevenSerrao1.github.io/Official-Projects/assets/STEVEN_SERRAO_DEVELOPER_RESUME.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         download="resume.pdf"
-                        className="btn btn-warning text-dark lm-bold-font px-4 py-2 border-0"
+                        className="btn btn-warning text-dark lm-bold-font px-4 py-2 border-0 send-button"
                     >
                         My CV
                     </a>

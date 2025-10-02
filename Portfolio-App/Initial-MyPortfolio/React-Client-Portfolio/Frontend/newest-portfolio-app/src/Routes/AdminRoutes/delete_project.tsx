@@ -11,7 +11,7 @@ const DeleteProject: React.FC = () => {
     const navigate = useNavigate(); // Navigation hook
     const ProjectDelete = async (id: number) => {
     try {
-        const res = await axios.delete(`http://localhost:5000/admin/deleteproject/${id}`);
+        const res = await axios.delete(`https://official-projects.onrender.com/admin/deleteproject/${id}`);
         console.log(res.data);
         alert("Project Deleted Successfully!"); // prompt → alert is simpler here
         setTimeout(() => navigate("/admin"), 1800);

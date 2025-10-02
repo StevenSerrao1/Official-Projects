@@ -34,6 +34,11 @@
     font-family: 'Lato', sans-serif;
 }
 
+.lato-caption {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+}
+
 .send-button:hover {
     text-decoration: none;
     background-color: black !important;
@@ -71,4 +76,56 @@
 
 .form-label-text {
     color: #ffc107;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050; /* sit above normal content */
+}
+
+.modal-content2 {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  border: 3px solid #ffc107;
+}
+
+.modal-text {
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 10px;
+    text-align: center;
+}
+
+.image-handler {
+    max-width: 60%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.close-modal-button {
+    border: 2px solid #ffc107;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-weight: bold;
+}
+
+.close-modal-button:hover {
+    text-decoration: none;
+    background-color: #ffc107 !important;
+    color: black;
+    border: 2px solid black;
 }

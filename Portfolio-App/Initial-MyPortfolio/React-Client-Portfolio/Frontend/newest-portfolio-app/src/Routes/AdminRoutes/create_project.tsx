@@ -48,7 +48,7 @@ const CreateProject: React.FC = () => {
         setLoading(true);
         setResponse("");
         try {
-            const res = await axios.post("http://localhost:5000/admin/createproject/", project);
+            const res = await axios.post("https://official-projects.onrender.com/admin/createproject/", project);
             setResponse("Project created successfully!");
             setTimeout(() => navigate('/admin'), 1800); // Redirect to /admin after creation
             console.log(res.data);
