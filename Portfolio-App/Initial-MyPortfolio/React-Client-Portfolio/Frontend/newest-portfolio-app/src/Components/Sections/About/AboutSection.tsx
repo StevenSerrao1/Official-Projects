@@ -1,8 +1,11 @@
 ﻿import React from "react";
 import "../../../Assets/Fonts/LemonMilkRegularFont.css";
 import "../../../styles/AboutMeCSS.css"; // New shared style file for dark + yellow theme
+import { useNavigate } from "react-router-dom";
 
 const AboutSection: React.FC = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="container-fluid my-4" id="about">
             <div className="border border-3 border-warning p-0">
@@ -21,14 +24,7 @@ const AboutSection: React.FC = () => {
                     {/* Text Section */}
                     <div className="col-md-8">
                         <p className="lato-p text-light">
-                            I’m a <strong>full-stack developer</strong> with a strong focus on{" "}
-                            <strong>backend engineering</strong> using <strong>ASP.NET Core</strong>,{" "}
-                            <strong>EF Core</strong>, and <strong>SQL</strong>. I built <strong>SoundBite™</strong>,
-                            a music rating app designed with clean, scalable architecture and an emphasis on great user experience, and I’m currently working on a WhatsApp clone to sharpen my skills in real-time messaging and full-stack development.
-                            I’m comfortable deploying containerized applications with <strong>Docker</strong> and managing cloud infrastructure on <strong>Azure</strong>, ensuring systems are robust and maintainable. I'm constantly pushing to level up — <strong>always learning</strong> new technologies and sharpening the tools I already use to build better, smarter systems. While I enjoy creating intuitive frontends
-                            with <strong>React</strong> and <strong>Blazor</strong>, my core strength lies in backend development — building reliable, high-performance APIs and services in <strong>C#</strong> and <strong>Python</strong> that get the job done.
-                            Based in South Africa, I’m open to full-time opportunities in <strong>Cape Town</strong>, <strong>Johannesburg</strong>, or <strong>Pretoria</strong> — remote, hybrid, or on-site. I’m eager to join a team that values{" "}
-                            <strong>clean code</strong>, <strong>practical problem-solving</strong>, and shipping features that make a difference.
+                            I’m a <strong>full-stack developer</strong> with a strong focus on <strong>backend engineering</strong> using <strong>ASP.NET Core</strong>, <strong>EF Core</strong>, and <strong>SQL</strong>. I am currently building <strong>SoundBite™</strong>, a music rating app designed to improve my skills in creating <strong>scalable</strong>, <strong>user-focused applications</strong>. I am experienced in deploying containerized applications with <strong>Docker</strong> and managing cloud infrastructure on <strong>Azure</strong> to ensure systems are <strong>reliable</strong> and <strong>maintainable</strong>. While I enjoy creating intuitive frontends with <strong>React</strong> and <strong>Blazor</strong>, my core strength lies in <strong>backend development</strong>, building <strong>high-performance APIs</strong> and services in <strong>C#</strong> and <strong>Python</strong> that deliver results. Based in South Africa, I am seeking full-time opportunities anywhere in the <strong>Western Cape Province</strong>, <strong>Johannesburg</strong>, or <strong>Pretoria</strong>, whether <strong>remote</strong>, <strong>hybrid</strong>, or <strong>on-site</strong>. I want to join a team that values <strong>clean code</strong>, <strong>practical problem-solving</strong>, and delivering features that make a difference.
                         </p>
                         <p className="yellow-underline fs-5 lato-p mt-3"><strong>Let's Build Something Real.</strong></p>
                     </div>

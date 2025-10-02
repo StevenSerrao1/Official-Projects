@@ -41,7 +41,7 @@ const ContactMe: React.FC = () => {
     };
 
     return (
-        <div className="container-fluid py-4">
+        <div className="container-fluid py-4" id="contact">
             <div className="card border-0">
                 <div className="border border-warning border-3 lm-bold-font bg-dark">
                     <h2 className="fs-4 dark-bg-heading text-center lm-reg-font pt-4 pb-4 mb-0">
