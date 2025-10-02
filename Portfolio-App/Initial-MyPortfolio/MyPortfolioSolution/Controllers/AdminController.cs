@@ -29,7 +29,7 @@ namespace MyPortfolioSolution.Controllers
             return View(projects);
         }
 
-        [HttpGet("/admin/project/{id: int}")]
+        [HttpGet("/admin/project/{id:int}")]
         public async Task<IActionResult> LoadSingleProject(int id)
         {
             // Verify successful return of SINGLE PROJECT in db; returned in JSON format
