@@ -24,7 +24,7 @@ const CarouselComponent: React.FC<CarouselComponentProps> = ({ images }) => { //
   };
 
   return (
-    <div className="carousel-component">
+    <div className="carousel-component border border-1 border-white p-1">
       <div className="carousel-image-container">
         {images.length > 0 && (
           <img
@@ -38,6 +38,7 @@ const CarouselComponent: React.FC<CarouselComponentProps> = ({ images }) => { //
         <button onClick={prevImage} className="carousel-button">Previous</button>
         <button onClick={nextImage} className="carousel-button">Next</button>
       </div>
+      <div className="text-light text-center">{images[currentIndex].caption}</div>
     </div>
   );
 };

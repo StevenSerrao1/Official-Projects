@@ -21,6 +21,7 @@ const AdminPanel: React.FC = () => {
 
             {/* Global Create Project Button */}
             <div className="mb-4">
+                <h2 className="mb-4 text-light">ADMIN PANEL</h2>
                 <Link to="/admin/createproject" className="btn btn-success">Create New Project</Link>
             </div>
 

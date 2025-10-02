@@ -142,14 +142,17 @@ const ProjectSection: React.FC = () => {
                       
                         <div className="modal-content2">
                           <div>
+                            <h2 className="text-center text-decoration-underline mb-3">{project.title}</h2>
                             <p className="modal-text">{project.fullDescription}</p>
                           </div>
                           <div>
                             {CarouselComponent && <CarouselComponent images={project.images} />}
+                            
                           </div>
                           <div className="text-center">
                             <button className="close-modal-button cv-button" onClick={() => setOpen(false)}>[X] CLOSE [X]</button>
                           </div>
+
                         </div>
                       </div>
                     )}

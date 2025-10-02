@@ -143,6 +143,7 @@ const CreateProject: React.FC = () => {
                 <button type="submit" className="btn btn-primary" disabled={loading}>
                     {loading ? "Creating..." : "Create Project"}
                 </button>
+                <button className="btn btn-danger ms-2" onClick={() => navigate("/admin")}>Cancel</button>
 
                 {response && <p className="mt-2">{response}</p>}
             </form>

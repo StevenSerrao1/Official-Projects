@@ -25,7 +25,7 @@ const HeaderComponent: React.FC = () => {
                     >
                         <i className="bi bi-github fs-4"></i>
                     </a>
-                    <Link to="/admin">ADMIN BUTTON</Link>
+                    
                     <a
                         className="nav-link text-light d-flex align-items-center justify-content-center"
                         href="https://www.instagram.com/steven_serrao"
@@ -43,7 +43,7 @@ const HeaderComponent: React.FC = () => {
                         <i className="bi bi-linkedin fs-4"></i>
                     </a>
                     <a
-                        className="nav-link text-success d-flex align-items-center justify-content-center"
+                        className="nav-link text-success d-flex align-items-center justify-content-center me-5"
                         href="https://wa.me/27673199177?text=Hi%20Steven%2C%20I%27m%20interested%20in%20your%20work!"
                         target="_blank"
                         rel="noopener noreferrer"

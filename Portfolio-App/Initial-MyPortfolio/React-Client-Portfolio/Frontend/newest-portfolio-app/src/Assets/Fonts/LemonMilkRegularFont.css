@@ -45,29 +45,6 @@
     color: #ffc107 !important;
 }
 
-.expanded-project {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1000;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.expanded-card {
-    width: 75vw;
-    height: 80vh;
-    background-color: white;
-    border: 5px solid #ffc107;
-    display: flex;
-    justify-content: center;
-}
-
 .plain-yellow-underline {
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -78,6 +55,7 @@
     color: #ffc107;
 }
 
+/* Modal overlay covering screen with scrolling */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -89,20 +67,26 @@
   align-items: center;
   justify-content: center;
   z-index: 1050; /* sit above normal content */
+  padding: 1rem;
+  overflow-y: auto; /* enables scrolling if content is too tall */
 }
 
+/* Modal content box with scrollable content if needed */
 .modal-content2 {
-  background: white;
+  background: #222222;
+  color: white;
   padding: 20px;
   border-radius: 8px;
   max-width: 600px;
+  max-height: 90vh; /* ensures it never exceeds viewport height */
   width: 90%;
   position: relative;
   border: 3px solid #ffc107;
+  overflow-y: auto; /* scroll inside modal */
 }
 
 .modal-text {
-    color: black;
+    color: rgb(239, 239, 239);
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     line-height: 1.5;
