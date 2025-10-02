@@ -1,6 +1,7 @@
 ﻿import React from "react";
 import "../../Assets/Fonts/LemonMilkBoldFont.css";
 import "./Header.css"
+import { Link } from "react-router-dom";
 
 const HeaderComponent: React.FC = () => {
     return (
@@ -24,6 +25,7 @@ const HeaderComponent: React.FC = () => {
                     >
                         <i className="bi bi-github fs-4"></i>
                     </a>
+                    <Link to="/admin">ADMIN BUTTON</Link>
                     <a
                         className="nav-link text-light d-flex align-items-center justify-content-center"
                         href="https://www.instagram.com/steven_serrao"

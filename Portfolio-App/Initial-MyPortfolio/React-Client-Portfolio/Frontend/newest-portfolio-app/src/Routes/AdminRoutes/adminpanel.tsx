@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { AdminProject } from "../../Components/Sections/Projects/types/interfaces";
 import "../../Assets/Fonts/LemonMilkRegularFont.css";
+import { Link } from "react-router-dom";
 
 const AdminPanel: React.FC = () => {
     const [projects, setProjects] = useState<AdminProject[]>([]);
@@ -20,7 +21,7 @@ const AdminPanel: React.FC = () => {
 
             {/* Global Create Project Button */}
             <div className="mb-4">
-                <a href="/admin/createproject" className="btn btn-success">Create New Project</a>
+                <Link to="/admin/createproject" className="btn btn-success">Create New Project</Link>
             </div>
 
             {projects.map(p => (
