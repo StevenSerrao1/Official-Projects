@@ -73,19 +73,19 @@ const AboutSection: React.FC = () => {
                         <small className="text-muted text-decoration-underline">Relative proficiency (self-assessed)</small>
                         {[{
                             label: "ASP.NET Core (with C#)",
-                            value: 85,
+                            value: 95,
                             barClass: "bg-success"
                         },{
                             label: "React (with TypeScript/JavaScript)",
-                            value: 65,
+                            value: 85,
                             barClass: "bg-info"
                         },{
                             label: "EF Core (with C#)",
-                            value: 65,
+                            value: 85,
                             barClass: "bg-primary"
                         },{
                             label: "SQL/PostgreSQL (with SQL)",
-                            value: 70,
+                            value: 90,
                             barClass: "bg-warning"
                         }].map(({label, value, barClass}) => (
                             <div className="mb-2" key={label}>

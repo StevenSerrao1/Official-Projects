@@ -2,7 +2,7 @@
 using MyPortfolioSolution.Entities1;
 using MyPortfolioSolution.ServiceContracts1;
 using MyPortfolioSolution.Services1;
-using MyPortfolioSolution.ViewModels;
+using MyPortfolioSolution.DTO;
 
 namespace MyPortfolioSolution.Controllers
 {
@@ -30,7 +30,7 @@ namespace MyPortfolioSolution.Controllers
             try
             {
                 // Call the service to load projects asynchronously
-                List<ProjectViewModel> projects = await _projectsService.LoadProjects();
+                List<ProjectAddResponse> projects = await _projectsService.LoadProjects();
                 return Ok(projects);  // Return the list of projects with HTTP status 200 (OK)
             }
             catch (Exception ex)
@@ -39,13 +39,6 @@ namespace MyPortfolioSolution.Controllers
                 _logger.LogError(ex, "An error occurred while loading projects.");
                 return StatusCode(500, "Internal server error");  // Return 500 if an error occurs
             }
-        }
-
-        // Simple test endpoint to confirm the API is working
-        [HttpGet("[action]")]
-        public IActionResult Test()
-        {
-            return Ok("Contact API is working!");  // Returns a simple message for testing purposes
         }
     }
 }

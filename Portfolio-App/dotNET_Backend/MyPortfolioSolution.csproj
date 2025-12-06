@@ -20,6 +20,10 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.1" />
     <PackageReference Include="Octokit" Version="13.0.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 	
 <PropertyGroup>
   <GenerateAssemblyInfo>false</GenerateAssemblyInfo>

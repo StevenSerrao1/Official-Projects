@@ -1,5 +1,4 @@
 ﻿using MyPortfolioSolution.DTO;
-using MyPortfolioSolution.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -52,39 +51,7 @@ namespace MyPortfolioSolution.Entities1
     // Extension methods for the Project entity to map it to view models and DTOs
     public static class ProjectExtensions
     {
-        /// <summary>
-        /// Converts a Project entity into a ProjectViewModel that is more suitable for UI rendering.
-        /// This ensures a separation of concerns between the data model and the view.
-        /// </summary>
-        /// <param name="project">The Project object to be converted.</param>
-        /// <returns>A ProjectViewModel with the necessary fields formatted for the UI.</returns>
-        public static ProjectViewModel ToProjectModel(this Project project)
-        {
-            // Create and return a ProjectViewModel with formatted fields
-            return new ProjectViewModel
-            {
-                Title = project.Title,
-                // Short description truncates to 100 characters, appending '...' if necessary
-                ShortDescription = project.Description.Length > 100
-                                    ? project.Description.Substring(0, 100) + "..."
-                                    : project.Description,
-                FullDescription = project.Description,  // Full description is kept as is
-                ProjectURL = project.ProjectURL,
-                // Date formatted as 'dd MMM yyyy'
-                DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),
-                GitHubViews = project.GitHubViews,
-                GitHubRepoName = project.GitHubRepoName,
-                // Map Images list to ImageViewModel list
-                Images = project.Images?.Select(image => new ImageViewModel
-                {
-                    ImageUrl = image.ImageUrl,
-                    Caption = image.Caption,
-                    AdditionalInfo = image.AdditionalInfo,
-                    AltText = image.AltText,
-                    ProjectId = image.ProjectId
-                }).ToList() ?? new List<ImageViewModel>() // If Images is null, return an empty list
-            };
-        }
+        // Note: ViewModel conversions removed. API uses DTOs (ProjectAddResponse + ImageAddResponse) for all responses.
 
         /// <summary>
         /// Converts a Project entity into a ProjectAddResponse, which is used for API responses or form submissions.
@@ -99,6 +66,11 @@ namespace MyPortfolioSolution.Entities1
                 ProjectId = project.ProjectId,
                 Title = project.Title,
                 Description = project.Description,
+                // Short description truncates to 100 characters, appending '...' if necessary
+                ShortDescription = project.Description.Length > 100
+                                    ? project.Description.Substring(0, 100) + "..."
+                                    : project.Description,
+                FullDescription = project.Description,
                 ProjectURL = project.ProjectURL,
                 // Date formatted as 'dd MMM yyyy'
                 DateCreatedFormatted = project.DateCreated.ToString("dd MMM yyyy"),

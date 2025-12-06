@@ -1,4 +1,5 @@
 ﻿using MyPortfolioSolution.Entities1;
+using MyPortfolioSolution.DTO;
 
 namespace MyPortfolioSolution.ViewModels
 {
@@ -28,6 +29,7 @@ namespace MyPortfolioSolution.ViewModels
         public string GitHubRepoName { get; set; } = string.Empty;
 
         // List of images associated with the project, always initialized as an empty list by default.
-        public List<ImageViewModel> Images { get; set; } = new();
+        // Use DTO `ImageAddResponse` for API responses (no view-model behavior).
+        public List<ImageAddResponse> Images { get; set; } = new();
     }
 }

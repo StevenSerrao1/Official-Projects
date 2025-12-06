@@ -11,7 +11,11 @@ namespace MyPortfolioSolution.DTO
         // The title of the project.
         public string Title { get; set; } = string.Empty;
 
-        // A brief description of the project.
+        // A shortened description of the project, could be null if not provided.
+        public string? ShortDescription { get; set; }
+
+        // Full description of the project, could be null if not provided.
+        public string? FullDescription { get; set; }
         public string Description { get; set; } = string.Empty;
 
         // The URL for the live project or demo.

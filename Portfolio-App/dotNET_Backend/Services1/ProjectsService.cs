@@ -1,6 +1,4 @@
 ﻿using MyPortfolioSolution.Entities1;
-using MyPortfolioSolution.Models.Enums;
-using MyPortfolioSolution.ViewModels;
 using MyPortfolioSolution.ServiceContracts1;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolioSolution.DTO;
@@ -34,8 +32,11 @@ namespace MyPortfolioSolution.Services1
             await _context.SaveChangesAsync();
 
             // Create and associate images for the project using the ImageService
+            var imageAddRequests = project.Images?.Select(image => image.ToImageAddRequest()).ToList()
+                                   ?? new List<ImageAddRequest>();
+
             List<Images> images = await _imageService.CreateImagesForProject(
-                project.Images!.Select(image => image.ToImageAddRequest()).ToList(),
+                imageAddRequests,
                 project.ProjectId
             );
 
@@ -55,12 +56,12 @@ namespace MyPortfolioSolution.Services1
             return response;
         }
 
-        public async Task<List<ProjectViewModel>> LoadProjects()
+        public async Task<List<ProjectAddResponse>> LoadProjects()
         {
-            // Load all projects with their images, and map them to view models
-            List<ProjectViewModel> projects = await _context.Projects!
+            // Load all projects with their images
+            List<ProjectAddResponse> projects = await _context.Projects!
                 .Include(p => p.Images)
-                .Select(p => p.ToProjectModel())
+                .Select(p => p.ToProjectAddReponse())
                 .ToListAsync();
 
             // Fetch GitHub views data for each project asynchronously
@@ -109,7 +110,7 @@ namespace MyPortfolioSolution.Services1
             }
 
             // Fetch GitHub views data for the project repository
-            projectRetrieved.GitHubViews = _gitHubService.GetGitHubViewsAsync(projectRetrieved.GitHubRepoName).ToString();
+            projectRetrieved.GitHubViews = await _gitHubService.GetGitHubViewsAsync(projectRetrieved.GitHubRepoName);
 
             return projectRetrieved;
         }
@@ -122,14 +123,8 @@ namespace MyPortfolioSolution.Services1
                 throw new ArgumentNullException(nameof(id), "Id cannot be null.");
             }
 
-            // Retrieve the project by ID
+            // Retrieve the project by ID (GetProjectById throws if not found)
             Project? projectToDelete = await GetProjectById(id);
-
-            if (projectToDelete == null)
-            {
-                // Handle the case where the project doesn't exist
-                throw new KeyNotFoundException($"Project with ID {id} not found.");
-            }
 
             // Remove the project from the DbContext
             _context.Projects!.Remove(projectToDelete);
@@ -156,9 +151,10 @@ namespace MyPortfolioSolution.Services1
             existingProject.GitHubRepoName = project.GitHubRepoName;
 
             // Handle updating the project's images
-            if (project.Images.Count != 0)
+            if (project.Images != null && project.Images.Count > 0)
             {
-                existingProject.Images!.Clear(); // Clear existing images
+                existingProject.Images ??= new List<Images>();
+                existingProject.Images.Clear(); // Clear existing images
                 foreach (var image in project.Images)
                 {
                     existingProject.Images.Add(image.ToImage()); // Add new images

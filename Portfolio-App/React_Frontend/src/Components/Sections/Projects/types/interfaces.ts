@@ -42,8 +42,3 @@ export interface ProjectAddRequest {
     gitHubRepoName: string;
     images: ImageAddRequest[];
 }
-
-// NEXT UP, import these types at ProjectSection.tsx
-// Use the API call (axios) to retrieve info from the backend and create project model with above interface
-// Style it properly
-// THEN TWEAK THE BACKEND AS MUCH AS POSSIBLE TO ENSURE MULTIPLE PIC UPLOAD AND NON-SHIT ADMIN PANEL

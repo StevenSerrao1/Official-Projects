@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MyPortfolioSolution.DTO;
-using MyPortfolioSolution.ViewModels;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MyPortfolioSolution.Entities1
@@ -61,19 +60,7 @@ namespace MyPortfolioSolution.Entities1
             };
         }
 
-        // Converts an Images entity to an ImageViewModel.
-        // This is used for displaying image data on the UI, ensuring the entity is represented in a more user-friendly way.
-        public static ImageViewModel ToImageViewModel(this Images image)
-        {
-            return new ImageViewModel()
-            {
-                ImageUrl = image.ImageUrl,           // The URL of the image
-                Caption = image.Caption,             // The caption describing the image
-                AdditionalInfo = image.AdditionalInfo, // Any additional information related to the image (e.g., credits, context)
-                AltText = image.AltText,             // Alternative text for the image, used for accessibility
-                ProjectId = image.ProjectId          // The foreign key to the related project
-            };
-        }
+        // ViewModel conversion removed. API responses use ImageAddResponse (DTO) only.
 
         // Converts an Images entity to an ImageAddRequest object.
         // This is typically used for API requests when adding new images to a project.

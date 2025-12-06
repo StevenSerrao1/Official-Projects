@@ -1,7 +1,5 @@
 ﻿using MyPortfolioSolution.Entities1;
 using MyPortfolioSolution.DTO;
-using MyPortfolioSolution.Models.Enums;
-using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.ServiceContracts1
 {
@@ -22,8 +20,8 @@ namespace MyPortfolioSolution.ServiceContracts1
         /// Loads all projects currently stored in the database.
         /// This method is accessible through both Client and Admin APIs.
         /// </summary>
-        /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProjectViewModel"/> reflecting all projects.</returns>
-        public Task<List<ProjectViewModel>> LoadProjects();
+        /// <returns>A task that represents the asynchronous operation. The task result contains a list of <see cref="ProjectAddResponse"/> reflecting all projects.</returns>
+        public Task<List<ProjectAddResponse>> LoadProjects();
 
         /// <summary>
         /// Loads all projects currently stored in the database with additional admin-specific details.

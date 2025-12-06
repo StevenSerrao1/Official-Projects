@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyPortfolioSolution.DTO;
 using MyPortfolioSolution.Entities1;
 using MyPortfolioSolution.ServiceContracts1;
-using MyPortfolioSolution.ViewModels;
 
 namespace MyPortfolioSolution.Controllers
 {
@@ -73,8 +72,7 @@ namespace MyPortfolioSolution.Controllers
         //    return View(new ProjectAddRequest { Images = new List<ImageAddRequest>(new ImageAddRequest[2])});
         //}
 
-        // 2025/09/29 (08:59) I decided to make a huge change. I am moving the admin panel to react, since this was a crux.
-        // I will be modifying the CRUD endpoints to no longer return views, instead to return and accept JSON.
+        // Admin panel moved to a React frontend; CRUD endpoints now return and accept JSON.
 
         [HttpPost("[action]")] // admin/createproject/[post]
         public async Task<IActionResult> CreateProject([FromBody] ProjectAddRequest par)
